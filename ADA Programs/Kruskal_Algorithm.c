@@ -47,11 +47,12 @@ void kruskal ()
         a[v1][v2]=a[v2][v1]=0;
         if(root[v1]!=root[v2])
         {
-            printf("(%d,%d)",v1,v2);
+            printf("(%d,%d)\n",v1,v2);
             update(root,v1,v2);
             cost+=edge;
+            i++;
+
         }
-                i++;
 
     }
 
@@ -71,6 +72,6 @@ int main()
     }
     printf("Edges of Spanning tree is:\n");
     kruskal();
-    printf("Minimum cost is :%d",cost);
+    printf("\nMinimum cost is :%d\n",cost);
     return(0);
 }
