@@ -12,9 +12,9 @@ Below is the complete list of programs included in this repository:
    <br>
    <img src="ADA Programs/Images/Kruskal.jpg" alt="Kruskal's Algorithm Output" width="500"/>
 
-2. ✅ **[Prim's Algorithm](ADA Programs/prim.c)** – Minimum Cost Spanning Tree  
+2. ✅ **[Prim's Algorithm](ADA%20Programs/Prims_Algorithm.c)** – Minimum Cost Spanning Tree  
    <br>
-   <img src="ADA Programs/Images/prim_output.png" alt="Prim's Algorithm Output" width="500"/>
+   <img src="ADA Programs/Images/Prims.jpg" alt="Prim's Algorithm Output" width="500"/>
 
 3. ✅ a) **[Floyd’s Algorithm](ADA Programs/floyd.c)** – All-Pairs Shortest Paths  
    <br>
