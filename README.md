@@ -8,7 +8,7 @@ Welcome to the **Analysis and Design of Algorithms** repository! This collection
 
 Below is the complete list of programs included in this repository:
 
-1. ✅ **[Kruskal's Algorithm](ADA Programs/Kruskal_Algorithm.c)** – Minimum Cost Spanning Tree  
+1. ✅ **[Kruskal's Algorithm](ADA%20Programs/Kruskal_Algorithm.c)** – Minimum Cost Spanning Tree  
    <br>
    <img src="ADA Programs/Images/Kruskal.jpg" alt="Kruskal's Algorithm Output" width="500"/>
 
