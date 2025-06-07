@@ -8,20 +8,57 @@ Welcome to the **Analysis and Design of Algorithms** repository! This collection
 
 Below is the complete list of programs included in this repository:
 
-1. ✅ **Kruskal's Algorithm** – Minimum Cost Spanning Tree  
-2. ✅ **Prim's Algorithm** – Minimum Cost Spanning Tree  
-3. ✅ a) **Floyd’s Algorithm** – All-Pairs Shortest Paths  
-   &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; b) **Warshall’s Algorithm** – Transitive Closure  
-4. ✅ **Dijkstra's Algorithm** – Single-Source Shortest Path  
-5. ✅ **Topological Sorting** – Ordering of vertices in a DAG  
-6. ✅ **0/1 Knapsack Problem** – Using Dynamic Programming  
-7. ✅ **Greedy Knapsack** – Discrete & Continuous  
-8. ✅ **Subset Sum Problem** – Using Backtracking  
-9. ✅ **Selection Sort** – With Time Complexity Analysis  
-10. ✅ **Quick Sort** – With Time Complexity Analysis  
-11. ✅ **Merge Sort** – With Time Complexity Analysis  
-12. ✅ **N-Queens Problem** – Using Backtracking
+1. ✅ **[Kruskal's Algorithm](ADA Programs/Kruskal_Algorithm.c)** – Minimum Cost Spanning Tree  
+   <br>
+   <img src="ADA Programs/Images/Kruskal.jpg" alt="Kruskal's Algorithm Output" width="500"/>
 
+2. ✅ **[Prim's Algorithm](ADA Programs/prim.c)** – Minimum Cost Spanning Tree  
+   <br>
+   <img src="ADA Programs/Images/prim_output.png" alt="Prim's Algorithm Output" width="500"/>
+
+3. ✅ a) **[Floyd’s Algorithm](ADA Programs/floyd.c)** – All-Pairs Shortest Paths  
+   <br>
+   <img src="ADA Programs/Images/floyd_output.png" alt="Floyd's Algorithm Output" width="500"/>
+   
+   &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; b) **[Warshall’s Algorithm](ADA Programs/warshall.c)** – Transitive Closure  
+   <br>
+   <img src="ADA Programs/Images/warshall_output.png" alt="Warshall's Algorithm Output" width="500"/>
+
+4. ✅ **[Dijkstra's Algorithm](ADA Programs/dijkstra.c)** – Single-Source Shortest Path  
+   <br>
+   <img src="ADA Programs/Images/dijkstra_output.png" alt="Dijkstra's Algorithm Output" width="500"/>
+
+5. ✅ **[Topological Sorting](ADA Programs/topological_sort.c)** – Ordering of vertices in a DAG  
+   <br>
+   <img src="ADA Programs/Images/topological_sort_output.png" alt="Topological Sort Output" width="500"/>
+
+6. ✅ **[0/1 Knapsack Problem](ADA Programs/knapsack_01.c)** – Using Dynamic Programming  
+   <br>
+   <img src="ADA Programs/Images/knapsack_01_output.png" alt="0/1 Knapsack Output" width="500"/>
+
+7. ✅ **[Greedy Knapsack](ADA Programs/greedy_knapsack.c)** – Discrete & Continuous  
+   <br>
+   <img src="ADA Programs/Images/greedy_knapsack_output.png" alt="Greedy Knapsack Output" width="500"/>
+
+8. ✅ **[Subset Sum Problem](ADA Programs/subset_sum.c)** – Using Backtracking  
+   <br>
+   <img src="ADA Programs/Images/subset_sum_output.png" alt="Subset Sum Output" width="500"/>
+
+9. ✅ **[Selection Sort](ADA Programs/selection_sort.c)** – With Time Complexity Analysis  
+   <br>
+   <img src="ADA Programs/Images/selection_sort_output.png" alt="Selection Sort Output" width="500"/>
+
+10. ✅ **[Quick Sort](ADA Programs/quick_sort.c)** – With Time Complexity Analysis  
+    <br>
+    <img src="ADA Programs/Images/quick_sort_output.png" alt="Quick Sort Output" width="500"/>
+
+11. ✅ **[Merge Sort](ADA Programs/merge_sort.c)** – With Time Complexity Analysis  
+    <br>
+    <img src="ADA Programs/Images/merge_sort_output.png" alt="Merge Sort Output" width="500"/>
+
+12. ✅ **[N-Queens Problem](ADA Programs/n_queens.c)** – Using Backtracking  
+    <br>
+    <img src="ADA Programs/Images/n_queens_output.png" alt="N-Queens Output" width="500"/>
 ---
 
 ## 📌 Why Use This Repository?
