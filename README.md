@@ -20,9 +20,9 @@ Below is the complete list of programs included in this repository:
    <br>
    <img src="ADA Programs/Images/Floyd .jpg" alt="Floyd's Algorithm Output" width="500"/>
    
-   &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; b) **[Warshall’s Algorithm](ADA Programs/warshall.c)** – Transitive Closure  
+   &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; b) **[Warshall’s Algorithm](ADA%20Programs/Warshal_Algorithm.c)** – Transitive Closure  
    <br>
-   <img src="ADA Programs/Images/warshall_output.png" alt="Warshall's Algorithm Output" width="500"/>
+   <img src="ADA Programs/Images/Warshal.jpg" alt="Warshall's Algorithm Output" width="500"/>
 
 4. ✅ **[Dijkstra's Algorithm](ADA Programs/dijkstra.c)** – Single-Source Shortest Path  
    <br>
