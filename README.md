@@ -16,9 +16,9 @@ Below is the complete list of programs included in this repository:
    <br>
    <img src="ADA Programs/Images/Prims.jpg" alt="Prim's Algorithm Output" width="500"/>
 
-3. ✅ a) **[Floyd’s Algorithm](ADA Programs/floyd.c)** – All-Pairs Shortest Paths  
+3. ✅ a) **[Floyd’s Algorithm](ADA%20Programs/Floyd_Algorithm.c)** – All-Pairs Shortest Paths  
    <br>
-   <img src="ADA Programs/Images/floyd_output.png" alt="Floyd's Algorithm Output" width="500"/>
+   <img src="ADA Programs/Images/Floyd .jpg" alt="Floyd's Algorithm Output" width="500"/>
    
    &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; b) **[Warshall’s Algorithm](ADA Programs/warshall.c)** – Transitive Closure  
    <br>
