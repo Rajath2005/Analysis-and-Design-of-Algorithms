@@ -6,19 +6,19 @@ int a[MAX][MAX],n,cost=0;
 void findmin(int *v1,int *v2)
 {
     int edge=INFI,i,j;
-    if(a[i][j]>0 && a[i][j]<edge )
-    {
         for(i=1;i<=n;i++)
         {
             for(j=i+1;j<=n;j++)
             {
-                edge=a[i][j];
-                *v1=i;
-                *v2=j;
+                if(a[i][j]>0 && a[i][j]<edge )
+                {
+                    edge=a[i][j];
+                   *v1=i;
+                   *v2=j;
+                }
+                
             }
         }
-    }
-    
 }
 void update(int root[],int v1,int v2)
 {
@@ -47,11 +47,11 @@ void kruskal ()
         a[v1][v2]=a[v2][v1]=0;
         if(root[v1]!=root[v2])
         {
-            printf("(%d%d)",v1,v2);
+            printf("(%d,%d)",v1,v2);
             update(root,v1,v2);
             cost+=edge;
-            i++;
         }
+                i++;
 
     }
 
@@ -66,10 +66,10 @@ int main()
     {
         for(j=1;j<=n;j++)
         {
-            scanf("%d%d",&a[i][j]);
+            scanf("%d",&a[i][j]);
         }
     }
-    printf("Spanning tree is:\n");
+    printf("Edges of Spanning tree is:\n");
     kruskal();
     printf("Minimum cost is :%d",cost);
     return(0);
