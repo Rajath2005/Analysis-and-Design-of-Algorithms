@@ -54,9 +54,9 @@ Below is the complete list of programs included in this repository:
     <br>
     <img src="ADA Programs/Images/qui.png" alt="Quick Sort Output" width="800"/>
 
-11. ✅ **[Merge Sort](ADA Programs/merge_sort.c)** – With Time Complexity Analysis  
+11. ✅ **[Merge Sort](ADA%20Programs/Merge.c)** – With Time Complexity Analysis  
     <br>
-    <img src="ADA Programs/Images/merge_sort_output.png" alt="Merge Sort Output" width="500"/>
+    <img src="" alt="Merge Sort Output" width="500"/>
 
 12. ✅ **[N-Queens Problem](ADA Programs/n_queens.c)** – Using Backtracking  
     <br>
