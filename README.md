@@ -17,8 +17,6 @@
 
 This repository contains **all 12 essential ADA lab programs** required for **VTU BCSL40A** course. Each program is implemented in **C programming language** with proper documentation, sample outputs, and time complexity analysis.
 
-**VTU Curriculum Aligned** - Complete implementation with visual outputs and performance analysis.
-
 ---
 
 ## 📚 Lab Programs List
