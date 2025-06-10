@@ -58,9 +58,9 @@ Below is the complete list of programs included in this repository:
     <br>
     <img src="ADA Programs\Images\Merge.png" alt="Merge Sort Output" width="500"/>
 
-12. ✅ **[N-Queens Problem](ADA Programs/n_queens.c)** – Using Backtracking  
+12. ✅ **[N-Queens Problem](ADA%20Programs/Nqueen.c)** – Using Backtracking  
     <br>
-    <img src="ADA Programs/Images/n_queens_output.png" alt="N-Queens Output" width="500"/>
+    <img src="ADA Programs/Images/nqueen.png"alt="N-Queens Output" width="500"/>
 ---
 
 ## 📌 Why Use This Repository?
