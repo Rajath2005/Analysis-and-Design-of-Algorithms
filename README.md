@@ -44,9 +44,11 @@ Below is the complete list of programs included in this repository:
    <br>
    <img src="ADA Programs/Images/set.PNG" alt="Subset Sum Output" width="500"/>
 
-9. ✅ **[Selection Sort](ADA Programs/selection_sort.c)** – With Time Complexity Analysis  
+9. ✅ **[Selection Sort](ADA%20Programs/selection.c)** – With Time Complexity Analysis  
    <br>
-   <img src="ADA Programs/Images/selection_sort_output.png" alt="Selection Sort Output" width="500"/>
+   <img src="ADA Programs/Images/Sele.png" alt="Selection Sort Output" width="500"/>
+      <img src="ADA Programs/Images/Selection.png" alt="Selection Sort Output" width="800"/>
+
 
 10. ✅ **[Quick Sort](ADA Programs/quick_sort.c)** – With Time Complexity Analysis  
     <br>
