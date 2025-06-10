@@ -60,7 +60,7 @@ Below is the complete list of programs included in this repository:
 
 12. ✅ **[N-Queens Problem](ADA%20Programs/Nqueen.c)** – Using Backtracking  
     <br>
-    <img src="ADA Programs/Images/nqueen.png"alt="N-Queens Output" width="500"/>
+    <img src="ADA Programs/Images/nqueen.png" alt="N-Queens Output" width="500"/>
 ---
 
 ## 📌 Why Use This Repository?
