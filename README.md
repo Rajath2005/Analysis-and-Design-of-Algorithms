@@ -40,9 +40,9 @@ Below is the complete list of programs included in this repository:
    <br>
    <img src="ADA Programs/Images/disknapsack.PNG" alt="Greedy Knapsack Output" width="500"/>
 
-8. ✅ **[Subset Sum Problem](ADA Programs/subset_sum.c)** – Using Backtracking  
+8. ✅ **[Subset Sum Problem](ADA%20Programs/set.c)** – Using Backtracking  
    <br>
-   <img src="ADA Programs/Images/subset_sum_output.png" alt="Subset Sum Output" width="500"/>
+   <img src="ADA Programs/Images/set.PNG" alt="Subset Sum Output" width="500"/>
 
 9. ✅ **[Selection Sort](ADA Programs/selection_sort.c)** – With Time Complexity Analysis  
    <br>
