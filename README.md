@@ -32,9 +32,9 @@ Below is the complete list of programs included in this repository:
    <br>
    <img src="ADA Programs/Images/Topological.PNG" alt="Topological Sort Output" width="500"/>
 
-6. ✅ **[0/1 Knapsack Problem](ADA Programs/knapsack_01.c)** – Using Dynamic Programming  
+6. ✅ **[0/1 Knapsack Problem](ADA%20Programs/knapsack_01.c)** – Using Dynamic Programming  
    <br>
-   <img src="ADA Programs/Images/knapsack_01_output.png" alt="0/1 Knapsack Output" width="500"/>
+   <img src="ADA Programs/Images/knapsack.PNG" alt="0/1 Knapsack Output" width="500"/>
 
 7. ✅ **[Greedy Knapsack](ADA Programs/greedy_knapsack.c)** – Discrete & Continuous  
    <br>
