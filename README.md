@@ -1,98 +1,128 @@
-# 🔍 Analysis and Design of Algorithms (ADA) – Lab Programs
+# 🚀 Analysis and Design of Algorithms (ADA) Lab Programs
 
-Welcome to the **Analysis and Design of Algorithms** repository! This collection of lab programs is designed to help students, enthusiasts, and developers understand and implement fundamental algorithms in computer science. These programs are written in **C** and cover a broad range of algorithmic strategies including **Greedy algorithms**, **Dynamic Programming**, **Backtracking**, **Graph algorithms**, and **Sorting techniques**.
+<div align="center">
+<img src="https://readme-typing-svg.herokuapp.com?font=Fira+Code&size=22&duration=3000&pause=1000&color=2E8B57&center=true&vCenter=true&width=500&lines=Complete+ADA+Lab+Solutions;VTU+BCSL40A+Programs;12+Essential+Algorithms;Ready+to+Compile+%26+Run" alt="Typing SVG" />
 
----
+![ADA Lab Banner](https://img.shields.io/badge/ADA-Lab%20Programs-brightgreen?style=for-the-badge&logo=algorithm)
+![VTU](https://img.shields.io/badge/VTU-BCSL40A-blue?style=for-the-badge&logo=university)
+![Language](https://img.shields.io/badge/Language-C-orange?style=for-the-badge&logo=c)
+![Semester](https://img.shields.io/badge/Semester-4th-red?style=for-the-badge)
 
-## 📚 Lab Programs Included
-
-Below is the complete list of programs included in this repository:
-
-1. ✅ **[Kruskal's Algorithm](ADA%20Programs/Kruskal_Algorithm.c)** – Minimum Cost Spanning Tree  
-   <br>
-   <img src="ADA Programs/Images/Kruskal.jpg" alt="Kruskal's Algorithm Output" width="500"/>
-
-2. ✅ **[Prim's Algorithm](ADA%20Programs/Prims_Algorithm.c)** – Minimum Cost Spanning Tree  
-   <br>
-   <img src="ADA Programs/Images/Prims.jpg" alt="Prim's Algorithm Output" width="500"/>
-
-3. ✅ a) **[Floyd’s Algorithm](ADA%20Programs/Floyd_Algorithm.c)** – All-Pairs Shortest Paths  
-   <br>
-   <img src="ADA Programs/Images/Floyd .jpg" alt="Floyd's Algorithm Output" width="500"/>
-   
-   &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; b) **[Warshall’s Algorithm](ADA%20Programs/Warshal_Algorithm.c)** – Transitive Closure  
-   <br>
-   <img src="ADA Programs/Images/Warshal.jpg" alt="Warshall's Algorithm Output" width="500"/>
-
-4. ✅ **[Dijkstra's Algorithm](ADA%20Programs/Dijkstras_Algorithm.c)** – Single-Source Shortest Path  
-   <br>
-   <img src="ADA Programs/Images/Dijkstra.PNG" alt="Dijkstra's Algorithm Output" width="500"/>
-
-5. ✅ **[Topological Sorting](ADA%20Programs/Topological.c)** – Ordering of vertices in a DAG  
-   <br>
-   <img src="ADA Programs/Images/Topological.PNG" alt="Topological Sort Output" width="500"/>
-
-6. ✅ **[0/1 Knapsack Problem](ADA%20Programs/knapsack_01.c)** – Using Dynamic Programming  
-   <br>
-   <img src="ADA Programs/Images/knapsack.PNG" alt="0/1 Knapsack Output" width="500"/>
-
-7. ✅ **[Greedy Knapsack](ADA%20Programs/Dis_knapsack.c)** – Discrete & Continuous  
-   <br>
-   <img src="ADA Programs/Images/disknapsack.PNG" alt="Greedy Knapsack Output" width="500"/>
-
-8. ✅ **[Subset Sum Problem](ADA%20Programs/set.c)** – Using Backtracking  
-   <br>
-   <img src="ADA Programs/Images/set.PNG" alt="Subset Sum Output" width="500"/>
-
-9. ✅ **[Selection Sort](ADA%20Programs/selection.c)** – With Time Complexity Analysis  
-   <br>
-   <img src="ADA Programs/Images/Sele.png" alt="Selection Sort Output" width="500"/>
-      <img src="ADA Programs/Images/Selection.png" alt="Selection Sort Output" width="800"/>
-
-
-10. ✅ **[Quick Sort](ADA%20Programs/Quick.c)** – With Time Complexity Analysis  
-    <br>
-    <img src="ADA Programs/Images/qui.png" alt="Quick Sort Output" width="800"/>
-
-11. ✅ **[Merge Sort](ADA%20Programs/Merge.c)** – With Time Complexity Analysis  
-    <br>
-    <img src="ADA Programs\Images\Merge.png" alt="Merge Sort Output" width="500"/>
-
-12. ✅ **[N-Queens Problem](ADA%20Programs/Nqueen.c)** – Using Backtracking  
-    <br>
-    <img src="ADA Programs/Images/nqueen.png" alt="N-Queens Output" width="500"/>
----
-
-## 📌 Why Use This Repository?
-
-- ✨ **Beginner-Friendly** – Each program is written with clarity and basic constructs.
-- 📘 **Lab-Oriented** – Matches common curriculum for **ADA labs** in Indian universities.
-- 📊 **C Language** – Perfect for academic environments using C for algorithm courses.
-- 🧠 **Concept Reinforcement** – Helps in understanding algorithm design patterns: greedy, DP, divide-and-conquer, and backtracking.
-- 🚀 **SEO-Optimized** – Easily searchable by algorithm name or problem type.
+</div>
 
 ---
 
-## 🔧 How to Run
+## 🎯 About This Repository
 
-Make sure you have a C compiler installed (`gcc` recommended).
+This repository contains **all 12 essential ADA lab programs** required for **VTU BCSL40A** course. Each program is implemented in **C programming language** with proper documentation, sample outputs, and time complexity analysis.
+
+**VTU Curriculum Aligned** - Complete implementation with visual outputs and performance analysis.
+
+---
+
+## 📚 Lab Programs List
+
+| S.No | Program | Algorithm Type | Complexity | Status |
+|------|---------|----------------|------------|--------|
+| 1 | [**Kruskal's Algorithm**](ADA%20Programs/Kruskal_Algorithm.c) | Greedy | O(E log E) | ✅ |
+| 2 | [**Prim's Algorithm**](ADA%20Programs/Prims_Algorithm.c) | Greedy | O(V²) | ✅ |
+| 3a | [**Floyd's Algorithm**](ADA%20Programs/Floyd_Algorithm.c) | Dynamic Programming | O(V³) | ✅ |
+| 3b | [**Warshall's Algorithm**](ADA%20Programs/Warshal_Algorithm.c) | Dynamic Programming | O(V³) | ✅ |
+| 4 | [**Dijkstra's Algorithm**](ADA%20Programs/Dijkstras_Algorithm.c) | Greedy | O(V²) | ✅ |
+| 5 | [**Topological Sorting**](ADA%20Programs/Topological.c) | Graph Traversal | O(V + E) | ✅ |
+| 6 | [**0/1 Knapsack Problem**](ADA%20Programs/knapsack_01.c) | Dynamic Programming | O(nW) | ✅ |
+| 7 | [**Greedy Knapsack**](ADA%20Programs/Dis_knapsack.c) | Greedy | O(n log n) | ✅ |
+| 8 | [**Subset Sum Problem**](ADA%20Programs/set.c) | Backtracking | O(2ⁿ) | ✅ |
+| 9 | [**Selection Sort**](ADA%20Programs/selection.c) | Sorting | O(n²) | ✅ |
+| 10 | [**Quick Sort**](ADA%20Programs/Quick.c) | Divide & Conquer | O(n log n) | ✅ |
+| 11 | [**Merge Sort**](ADA%20Programs/Merge.c) | Divide & Conquer | O(n log n) | ✅ |
+| 12 | [**N-Queens Problem**](ADA%20Programs/Nqueen.c) | Backtracking | O(N!) | ✅ |
+
+### 🎨 Sample Program Outputs
+
+<details>
+<summary>Click to view sample outputs</summary>
+
+#### 1. Kruskal's Algorithm - Minimum Cost Spanning Tree
+<img src="ADA Programs/Images/Kruskal.jpg" alt="Kruskal's Algorithm Output" width="500"/>
+
+#### 2. Prim's Algorithm - Minimum Cost Spanning Tree
+<img src="ADA Programs/Images/Prims.jpg" alt="Prim's Algorithm Output" width="500"/>
+
+#### 3a. Floyd's Algorithm - All-Pairs Shortest Paths
+<img src="ADA Programs/Images/Floyd .jpg" alt="Floyd's Algorithm Output" width="500"/>
+
+#### 3b. Warshall's Algorithm - Transitive Closure
+<img src="ADA Programs/Images/Warshal.jpg" alt="Warshall's Algorithm Output" width="500"/>
+
+#### 4. Dijkstra's Algorithm - Single Source Shortest Path
+<img src="ADA Programs/Images/Dijkstra.PNG" alt="Dijkstra's Algorithm Output" width="500"/>
+
+#### 5. Topological Sorting - Ordering of Vertices in DAG
+<img src="ADA Programs/Images/Topological.PNG" alt="Topological Sort Output" width="500"/>
+
+#### 6. 0/1 Knapsack Problem - Using Dynamic Programming
+<img src="ADA Programs/Images/knapsack.PNG" alt="0/1 Knapsack Output" width="500"/>
+
+#### 7. Greedy Knapsack - Discrete & Continuous
+<img src="ADA Programs/Images/disknapsack.PNG" alt="Greedy Knapsack Output" width="500"/>
+
+#### 8. Subset Sum Problem - Using Backtracking
+<img src="ADA Programs/Images/set.PNG" alt="Subset Sum Output" width="500"/>
+
+#### 9. Selection Sort - With Time Complexity Analysis
+<img src="ADA Programs/Images/Sele.png" alt="Selection Sort Output" width="500"/>
+<img src="ADA Programs/Images/Selection.png" alt="Selection Sort Analysis" width="500"/>
+
+#### 10. Quick Sort - With Time Complexity Analysis
+<img src="ADA Programs/Images/qui.png" alt="Quick Sort Output" width="500"/>
+
+#### 11. Merge Sort - With Time Complexity Analysis
+<img src="ADA Programs/Images/Merge.png" alt="Merge Sort Output" width="500"/>
+
+#### 12. N-Queens Problem - Backtracking Solution
+<img src="ADA Programs/Images/nqueen.png" alt="N-Queens Output" width="500"/>
+
+</details>
+
+---
+
+## 🛠️ How to Run
 
 ```bash
-gcc program_name.c -o program
-./program
-Analysis-and-Design-of-Algorithms-/
-│
-├── ADA Programs/
-│   ├── kruskal.c
-│   ├── prim.c
-│   ├── floyd_warshall.c
-│   ├── dijkstra.c
-│   ├── topological_sort.c
-│   ├── knapsack_dp.c
-│   ├── knapsack_greedy.c
-│   ├── subset_sum.c
-│   ├── selection_sort.c
-│   ├── quick_sort.c
-│   ├── merge_sort.c
-│   ├── n_queens.c
-│   └── list_programs.c (prints list of all programs)
+# Clone the repository
+git clone https://github.com/yourusername/Analysis-and-Design-of-Algorithms.git
+cd Analysis-and-Design-of-Algorithms/ADA\ Programs
+
+# Compile any program
+gcc program_name.c -o program_name
+
+# Run the program
+./program_name
+```
+
+---
+
+### 🔗 Useful Links
+- [**VTU Official Syllabus**](https://vtu.ac.in/en/b-e-scheme-syllabus/)
+- [**Algorithm Visualizer**](https://algorithm-visualizer.org/)
+- [**GeeksforGeeks ADA**](https://www.geeksforgeeks.org/fundamentals-of-algorithms/)
+
+---
+
+## 🤝 Contributing
+
+We welcome contributions to improve this repository!
+
+### How to Contribute
+1. **Fork** the repository
+2. **Create** a new branch (`git checkout -b feature/amazing-feature`)
+3. **Commit** your changes (`git commit -m 'Add amazing feature'`)
+4. **Push** to the branch (`git push origin feature/amazing-feature`)
+5. **Open** a Pull Request
+
+---
+
+**⭐ Don't forget to star this repository if it helped you! ⭐**
+
+</div>
