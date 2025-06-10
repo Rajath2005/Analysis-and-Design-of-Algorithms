@@ -26,7 +26,7 @@ Below is the complete list of programs included in this repository:
 
 4. ✅ **[Dijkstra's Algorithm](ADA%20Programs/Dijkstras_Algorithm.c)** – Single-Source Shortest Path  
    <br>
-   <img src="ADA Programs/Images/Dijkstra.png" alt="Dijkstra's Algorithm Output" width="500"/>
+   <img src="ADA Programs/Images/Dijkstra.PNG" alt="Dijkstra's Algorithm Output" width="500"/>
 
 5. ✅ **[Topological Sorting](ADA Programs/topological_sort.c)** – Ordering of vertices in a DAG  
    <br>
