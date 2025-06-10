@@ -50,9 +50,9 @@ Below is the complete list of programs included in this repository:
       <img src="ADA Programs/Images/Selection.png" alt="Selection Sort Output" width="800"/>
 
 
-10. ✅ **[Quick Sort](ADA Programs/quick_sort.c)** – With Time Complexity Analysis  
+10. ✅ **[Quick Sort](ADA%20Programs/Quick.c)** – With Time Complexity Analysis  
     <br>
-    <img src="ADA Programs/Images/quick_sort_output.png" alt="Quick Sort Output" width="500"/>
+    <img src="ADA Programs/Images/qui.png" alt="Quick Sort Output" width="800"/>
 
 11. ✅ **[Merge Sort](ADA Programs/merge_sort.c)** – With Time Complexity Analysis  
     <br>
