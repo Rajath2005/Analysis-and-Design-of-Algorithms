@@ -1,12 +1,13 @@
 # 🚀 Analysis and Design of Algorithms (ADA) Lab Programs
 
 <div align="center">
+
 <img src="https://readme-typing-svg.herokuapp.com?font=Fira+Code&size=22&duration=3000&pause=1000&color=2E8B57&center=true&vCenter=true&width=500&lines=Complete+ADA+Lab+Solutions;VTU+BCSL40A+Programs;12+Essential+Algorithms;Ready+to+Compile+%26+Run" alt="Typing SVG" />
 
 ![ADA Lab Banner](https://img.shields.io/badge/ADA-Lab%20Programs-brightgreen?style=for-the-badge&logo=algorithm)
 ![VTU](https://img.shields.io/badge/VTU-BCSL40A-blue?style=for-the-badge&logo=university)
 ![Language](https://img.shields.io/badge/Language-C-orange?style=for-the-badge&logo=c)
-![Semester](https://img.shields.io/badge/Semester-4th-red?style=for-the-badge)
+![Semester](https://img.shields.io/badge/Semester-4th-red?style=for-the-badge")
 
 </div>
 
@@ -37,6 +38,8 @@ This repository contains **all 12 essential ADA lab programs** required for **VT
 | 10 | [**Quick Sort**](ADA%20Programs/Quick.c) | Divide & Conquer | O(n log n) | ✅ |
 | 11 | [**Merge Sort**](ADA%20Programs/Merge.c) | Divide & Conquer | O(n log n) | ✅ |
 | 12 | [**N-Queens Problem**](ADA%20Programs/Nqueen.c) | Backtracking | O(N!) | ✅ |
+
+---
 
 ### 🎨 Sample Program Outputs
 
@@ -108,20 +111,6 @@ gcc program_name.c -o program_name
 - [**Algorithm Visualizer**](https://algorithm-visualizer.org/)
 - [**GeeksforGeeks ADA**](https://www.geeksforgeeks.org/fundamentals-of-algorithms/)
 
----
-
-## 🤝 Contributing
-
-We welcome contributions to improve this repository!
-
-### How to Contribute
-1. **Fork** the repository
-2. **Create** a new branch (`git checkout -b feature/amazing-feature`)
-3. **Commit** your changes (`git commit -m 'Add amazing feature'`)
-4. **Push** to the branch (`git push origin feature/amazing-feature`)
-5. **Open** a Pull Request
-
----
 
 **⭐ Don't forget to star this repository if it helped you! ⭐**
 
