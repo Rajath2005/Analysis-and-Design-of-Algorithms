@@ -28,7 +28,7 @@ int main()
     }
         printf("Enter the Source Vertex:\n");
         scanf("%d",&s);
-        printf("\n\n The Shortest Distance from the Source Vertex  %d\n",s);
+        printf("\n\nThe Shortest Distance from the Source Vertex  %d\n",s);
         dijkstra(s);
         printpath(s);
         return 0;
@@ -85,7 +85,7 @@ void printpath(int s)
     {
         if(visit[i]==1 && i!=s)
         {
-            printf("vertex %d :length %d path %d",i,dist[i],i);
+            printf("Vertex %d :length %d path %d",i,dist[i],i);
             t=p[i];
             
         while(t!=s)
