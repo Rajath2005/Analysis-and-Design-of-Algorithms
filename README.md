@@ -56,7 +56,7 @@ Below is the complete list of programs included in this repository:
 
 11. ✅ **[Merge Sort](ADA%20Programs/Merge.c)** – With Time Complexity Analysis  
     <br>
-    <img src="" alt="Merge Sort Output" width="500"/>
+    <img src="ADA Programs\Images\Merge.png" alt="Merge Sort Output" width="500"/>
 
 12. ✅ **[N-Queens Problem](ADA Programs/n_queens.c)** – Using Backtracking  
     <br>
