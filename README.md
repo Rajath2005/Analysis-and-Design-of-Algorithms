@@ -36,9 +36,9 @@ Below is the complete list of programs included in this repository:
    <br>
    <img src="ADA Programs/Images/knapsack.PNG" alt="0/1 Knapsack Output" width="500"/>
 
-7. ✅ **[Greedy Knapsack](ADA Programs/greedy_knapsack.c)** – Discrete & Continuous  
+7. ✅ **[Greedy Knapsack](ADA%20Programs/Dis_knapsack.c)** – Discrete & Continuous  
    <br>
-   <img src="ADA Programs/Images/greedy_knapsack_output.png" alt="Greedy Knapsack Output" width="500"/>
+   <img src="ADA Programs/Images/disknapsack.PNG" alt="Greedy Knapsack Output" width="500"/>
 
 8. ✅ **[Subset Sum Problem](ADA Programs/subset_sum.c)** – Using Backtracking  
    <br>
