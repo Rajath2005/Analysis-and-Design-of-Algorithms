@@ -1,15 +1,16 @@
 # 🚀 Analysis and Design of Algorithms (ADA) Lab Programs
 
-<div align="center">
+<p align="center">
+  <img src="https://readme-typing-svg.herokuapp.com?font=Fira+Code&size=22&duration=3000&pause=1000&color=2E8B57&center=true&vCenter=true&width=500&lines=Complete+ADA+Lab+Solutions;VTU+BCSL40A+Programs;12+Essential+Algorithms;Ready+to+Compile+%26+Run" alt="Typing SVG" />
+</p>
 
-<img src="https://readme-typing-svg.herokuapp.com?font=Fira+Code&size=22&duration=3000&pause=1000&color=2E8B57&center=true&vCenter=true&width=500&lines=Complete+ADA+Lab+Solutions;VTU+BCSL40A+Programs;12+Essential+Algorithms;Ready+to+Compile+%26+Run" alt="Typing SVG" />
+<p align="center">
+  <img src="https://img.shields.io/badge/ADA-Lab%20Programs-brightgreen?style=for-the-badge&logo=algorithm" />
+  <img src="https://img.shields.io/badge/VTU-BCSL40A-blue?style=for-the-badge&logo=university" />
+  <img src="https://img.shields.io/badge/Language-C-orange?style=for-the-badge&logo=c" />
+  <img src="https://img.shields.io/badge/Semester-4th-red?style=for-the-badge" />
+</p>
 
-![ADA Lab Banner](https://img.shields.io/badge/ADA-Lab%20Programs-brightgreen?style=for-the-badge&logo=algorithm)
-![VTU](https://img.shields.io/badge/VTU-BCSL40A-blue?style=for-the-badge&logo=university)
-![Language](https://img.shields.io/badge/Language-C-orange?style=for-the-badge&logo=c)
-![Semester](https://img.shields.io/badge/Semester-4th-red?style=for-the-badge")
-
-</div>
 
 ---
 
