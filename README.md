@@ -28,9 +28,9 @@ Below is the complete list of programs included in this repository:
    <br>
    <img src="ADA Programs/Images/Dijkstra.PNG" alt="Dijkstra's Algorithm Output" width="500"/>
 
-5. ✅ **[Topological Sorting](ADA Programs/topological_sort.c)** – Ordering of vertices in a DAG  
+5. ✅ **[Topological Sorting](ADA%20Programs/Topological.c)** – Ordering of vertices in a DAG  
    <br>
-   <img src="ADA Programs/Images/topological_sort_output.png" alt="Topological Sort Output" width="500"/>
+   <img src="ADA Programs/Images/Topological.PNG" alt="Topological Sort Output" width="500"/>
 
 6. ✅ **[0/1 Knapsack Problem](ADA Programs/knapsack_01.c)** – Using Dynamic Programming  
    <br>
