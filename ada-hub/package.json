@@ -2,6 +2,9 @@
   "name": "ada-hub",
   "type": "module",
   "version": "1.0.0",
+  "engines": {
+    "node": "20.x"
+  },
   "scripts": {
     "dev": "astro dev --host 0.0.0.0 --port 5000",
     "build": "astro build",
