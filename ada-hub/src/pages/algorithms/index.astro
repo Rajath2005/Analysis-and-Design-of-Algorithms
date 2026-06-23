@@ -1,0 +1,42 @@
+---
+import BaseLayout from '../../layouts/BaseLayout.astro';
+import AlgorithmCard from '../../components/AlgorithmCard.astro';
+import Breadcrumb from '../../components/Breadcrumb.astro';
+import { algorithms, categories } from '../../data/algorithms';
+
+const grouped = categories.map(cat => ({
+  ...cat,
+  algos: algorithms.filter(a => a.categorySlug === cat.slug),
+}));
+---
+
+<BaseLayout
+  title="All ADA Lab Algorithms — C Programs with Explanations"
+  description="Complete list of all 13 VTU BCSL40A ADA Lab algorithms with C programs, complexity analysis, and explanations. Kruskal, Prim, Dijkstra, Floyd, Warshall, Quick Sort, Merge Sort, N-Queens and more."
+  keywords={['ada lab programs list', 'vtu bcsl40a programs', 'algorithm programs in c', 'all sorting algorithms c']}
+>
+  <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-10">
+    <Breadcrumb crumbs={[{ label: 'Algorithms' }]} />
+
+    <div class="mb-10">
+      <h1 class="text-3xl sm:text-4xl font-bold text-dark-50 mb-3">ADA Lab Algorithms</h1>
+      <p class="text-dark-400 max-w-2xl">All 13 VTU BCSL40A programs with complete C source code, step-by-step explanations, sample input/output, and viva questions.</p>
+    </div>
+
+    {grouped.map(group => (
+      group.algos.length > 0 && (
+        <section class="mb-12">
+          <div class="flex items-center gap-3 mb-5">
+            <a href={`/categories/${group.slug}`} class="section-title hover:text-brand-400 transition-colors">{group.name}</a>
+            <span class="badge badge-green">{group.algos.length}</span>
+          </div>
+          <div class="grid sm:grid-cols-2 lg:grid-cols-3 gap-4">
+            {group.algos.map(algo => (
+              <AlgorithmCard {...algo} />
+            ))}
+          </div>
+        </section>
+      )
+    ))}
+  </div>
+</BaseLayout>

@@ -1,0 +1,4 @@
+User-agent: *
+Allow: /
+
+Sitemap: https://ada-hub.replit.app/sitemap-index.xml

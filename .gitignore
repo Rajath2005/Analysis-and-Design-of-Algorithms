@@ -1,3 +1,8 @@
+# Node.js / Astro
+ada-hub/node_modules/
+ada-hub/dist/
+ada-hub/.astro/
+
 # Prerequisites
 *.d
 

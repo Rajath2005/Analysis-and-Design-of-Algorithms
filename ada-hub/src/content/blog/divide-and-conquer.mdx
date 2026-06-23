@@ -1,0 +1,149 @@
+---
+title: "Divide and Conquer — Complete Guide with C Examples"
+description: "Master Divide and Conquer with Merge Sort and Quick Sort in C. Learn the paradigm, recurrence relations, Master Theorem, and when to use D&C vs DP or Greedy."
+pubDate: 2024-12-12
+tags: ["divide and conquer", "merge sort", "quick sort", "sorting", "ADA", "algorithms"]
+author: "Rajath Kiran A"
+---
+
+## What is Divide and Conquer?
+
+**Divide and Conquer** is an algorithm design paradigm that works by recursively breaking a problem into smaller subproblems, solving them independently, and combining their solutions.
+
+### The Three Steps
+
+1. **Divide** — Split the problem into 2 or more subproblems of the same type
+2. **Conquer** — Solve each subproblem recursively (base case: small enough to solve directly)
+3. **Combine** — Merge the solutions of subproblems into the solution for the original problem
+
+## D&C in VTU ADA Lab
+
+### Merge Sort — Classic D&C
+
+```
+sort(arr, low, high):
+    if low >= high: return          // Base case
+    mid = (low + high) / 2
+    sort(arr, low, mid)             // Divide: sort left half
+    sort(arr, mid+1, high)          // Divide: sort right half
+    Merge(arr, low, mid, high)      // Combine: merge sorted halves
+```
+
+**Key insight**: Splitting is trivial (just compute mid), the real work happens during the **Merge** step.
+
+[View complete Merge Sort program →](/algorithms/merge-sort)
+
+### Quick Sort — D&C with Smart Division
+
+```
+quicksort(arr, low, high):
+    if low >= high: return          // Base case
+    j = partition(arr, low, high)  // Divide: place pivot correctly
+    quicksort(arr, low, j-1)        // Conquer: sort left
+    quicksort(arr, j+1, high)       // Conquer: sort right
+                                    // Combine: nothing! Already sorted
+```
+
+**Key insight**: The **Partition** step is the real work. Combining is trivial since after partitioning, everything is already in the right place.
+
+[View complete Quick Sort program →](/algorithms/quick-sort)
+
+## Recurrence Relations
+
+D&C algorithms' time complexity is expressed as recurrence relations.
+
+### Merge Sort Recurrence
+```
+T(n) = 2T(n/2) + O(n)
+      ↑          ↑
+  2 subproblems  Merge work
+  of size n/2
+```
+
+### Quick Sort Recurrence
+```
+Average: T(n) = 2T(n/2) + O(n) → O(n log n)
+Worst:   T(n) = T(n-1) + O(n)  → O(n²)
+```
+
+## Solving with the Master Theorem
+
+For T(n) = aT(n/b) + f(n):
+
+- **a** = number of subproblems
+- **b** = size reduction factor
+- **f(n)** = work done at each level
+
+**Three cases** (compare f(n) with n^(log_b(a))):
+
+1. f(n) < n^(log_b a) → T(n) = **Θ(n^(log_b a))**
+2. f(n) = n^(log_b a) → T(n) = **Θ(n^(log_b a) log n)**
+3. f(n) > n^(log_b a) → T(n) = **Θ(f(n))**
+
+**For Merge Sort**: a=2, b=2, f(n)=n. log_b(a) = log_2(2) = 1. f(n) = n¹ = n^(log_b a) → Case 2 → **T(n) = Θ(n log n)** ✓
+
+## Merge Sort vs Quick Sort
+
+| Feature | Merge Sort | Quick Sort |
+|---------|-----------|-----------|
+| Time (average) | O(n log n) | O(n log n) |
+| Time (worst) | O(n log n) | O(n²) |
+| Space | O(n) extra | O(log n) stack |
+| Stable | Yes | No |
+| In-place | No | Yes |
+| Cache | Poor (random access) | Excellent (sequential) |
+| Best for | Linked lists, external sort | In-memory arrays |
+
+## The Partition Function — Quick Sort's Heart
+
+```c
+int partition(int arr[], int low, int high) {
+    int pivot = arr[low];   // Choose first element as pivot
+    int i = low, j = high;
+
+    while(i < j) {
+        while(arr[i] <= pivot && i <= high-1) i++;  // Find element > pivot
+        while(arr[j] > pivot && j >= low+1)  j--;  // Find element ≤ pivot
+        if(i < j) swap(&arr[i], &arr[j]);           // Swap them
+    }
+    swap(&arr[low], &arr[j]);  // Place pivot in correct position
+    return j;                  // Return pivot's final index
+}
+```
+
+After partition, all elements at indices `< j` are ≤ pivot, and all at indices `> j` are > pivot. The pivot is in its **final sorted position**.
+
+## The Merge Function — Merge Sort's Heart
+
+```c
+void Merge(int arr[], int low, int mid, int high) {
+    int i = low, j = mid+1, k = low;
+    int res[high+1];
+
+    while(i <= mid && j <= high) {
+        if(arr[i] < arr[j]) res[k++] = arr[i++];  // Take smaller element
+        else                 res[k++] = arr[j++];
+    }
+    while(i <= mid)  res[k++] = arr[i++];  // Copy remaining left
+    while(j <= high) res[k++] = arr[j++];  // Copy remaining right
+    for(int m = low; m <= high; m++) arr[m] = res[m];  // Copy back
+}
+```
+
+## Quick Sort Optimization Tips
+
+1. **Random pivot**: `swap(arr[low], arr[rand()%(high-low+1) + low])` before partitioning
+2. **Median-of-three**: Pick pivot as median of arr[low], arr[mid], arr[high]
+3. **Insertion sort for small arrays**: When subarray size < 10, use insertion sort
+
+## When to Use D&C vs Other Paradigms
+
+| Situation | Use |
+|-----------|-----|
+| Sort an array | D&C (Merge/Quick Sort) |
+| Find shortest paths between all pairs | DP (Floyd-Warshall) |
+| Build Minimum Spanning Tree | Greedy (Kruskal/Prim) |
+| Solve combinatorial problems | Backtracking |
+| Counting inversions | D&C (Modified Merge Sort) |
+
+[Explore all D&C programs →](/categories/divide-and-conquer)

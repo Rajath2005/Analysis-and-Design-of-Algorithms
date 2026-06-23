@@ -1,0 +1,63 @@
+---
+interface Props {
+  slug: string;
+  title: string;
+  shortTitle: string;
+  category: string;
+  categorySlug: string;
+  timeComplexity: string;
+  spaceComplexity: string;
+  description: string;
+}
+
+const { slug, title, category, categorySlug, timeComplexity, spaceComplexity, description } = Astro.props;
+
+const colorMap: Record<string, string> = {
+  greedy: 'green',
+  'dynamic-programming': 'blue',
+  'divide-and-conquer': 'purple',
+  backtracking: 'red',
+  'graph-algorithms': 'teal',
+};
+
+const color = colorMap[categorySlug] || 'green';
+
+const badgeClass: Record<string, string> = {
+  green: 'badge-green',
+  blue: 'badge-blue',
+  purple: 'badge-purple',
+  red: 'badge-red',
+  teal: 'badge-teal',
+};
+
+const borderClass: Record<string, string> = {
+  green: 'hover:border-brand-700',
+  blue: 'hover:border-blue-700',
+  purple: 'hover:border-purple-700',
+  red: 'hover:border-red-700',
+  teal: 'hover:border-teal-700',
+};
+---
+
+<a
+  href={`/algorithms/${slug}`}
+  class={`card p-5 block transition-all duration-200 hover:-translate-y-0.5 hover:shadow-lg hover:shadow-black/30 ${borderClass[color]}`}
+>
+  <div class="flex items-start justify-between gap-3 mb-3">
+    <span class={badgeClass[color]}>{category}</span>
+    <div class="text-right shrink-0">
+      <div class="text-xs text-dark-500 font-mono">T: {timeComplexity}</div>
+      <div class="text-xs text-dark-500 font-mono">S: {spaceComplexity}</div>
+    </div>
+  </div>
+
+  <h3 class="font-semibold text-dark-100 mb-2 group-hover:text-brand-400">{title}</h3>
+  <p class="text-dark-400 text-sm leading-relaxed line-clamp-2">{description}</p>
+
+  <div class="mt-4 flex items-center text-brand-500 text-sm font-medium">
+    View Algorithm
+    <svg class="w-4 h-4 ml-1" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+      <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5l7 7-7 7"/>
+    </svg>
+  </div>
+</a>

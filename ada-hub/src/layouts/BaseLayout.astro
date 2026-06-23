@@ -1,0 +1,106 @@
+---
+import '../styles/global.css';
+import Header from '../components/Header.astro';
+import Footer from '../components/Footer.astro';
+
+interface Props {
+  title: string;
+  description: string;
+  keywords?: string[];
+  ogImage?: string;
+  canonical?: string;
+  type?: 'website' | 'article';
+  pubDate?: string;
+  schema?: object;
+}
+
+const {
+  title,
+  description,
+  keywords = [],
+  ogImage = '/og-default.png',
+  canonical,
+  type = 'website',
+  pubDate,
+  schema,
+} = Astro.props;
+
+const siteUrl = 'https://ada-hub.replit.app';
+const canonicalUrl = canonical ? `${siteUrl}${canonical}` : `${siteUrl}${Astro.url.pathname}`;
+const fullTitle = title.includes('ADA Hub') ? title : `${title} | ADA Hub`;
+
+const defaultKeywords = ['ADA lab programs', 'VTU BCSL40A', 'analysis and design of algorithms', 'algorithm programs in C', 'Rajath Kiran'];
+const allKeywords = [...new Set([...keywords, ...defaultKeywords])];
+
+const breadcrumbSchema = {
+  "@context": "https://schema.org",
+  "@type": "BreadcrumbList",
+  "itemListElement": [
+    { "@type": "ListItem", "position": 1, "name": "Home", "item": siteUrl },
+  ]
+};
+
+const websiteSchema = {
+  "@context": "https://schema.org",
+  "@type": "WebSite",
+  "name": "ADA Hub",
+  "url": siteUrl,
+  "description": "Analysis and Design of Algorithms Learning Portal",
+  "author": {
+    "@type": "Person",
+    "name": "Rajath Kiran",
+    "url": "https://github.com/Rajath2005"
+  }
+};
+---
+
+<!doctype html>
+<html lang="en" class="dark">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+
+    <title>{fullTitle}</title>
+    <meta name="description" content={description} />
+    <meta name="keywords" content={allKeywords.join(', ')} />
+    <meta name="author" content="Rajath Kiran" />
+    <meta name="robots" content="index, follow" />
+
+    <link rel="canonical" href={canonicalUrl} />
+    <link rel="sitemap" href="/sitemap-index.xml" />
+    <link rel="alternate" type="application/rss+xml" title="ADA Hub RSS" href="/rss.xml" />
+    <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
+
+    <!-- Open Graph -->
+    <meta property="og:type" content={type} />
+    <meta property="og:url" content={canonicalUrl} />
+    <meta property="og:title" content={fullTitle} />
+    <meta property="og:description" content={description} />
+    <meta property="og:image" content={`${siteUrl}${ogImage}`} />
+    <meta property="og:site_name" content="ADA Hub" />
+    <meta property="og:locale" content="en_US" />
+    {pubDate && <meta property="article:published_time" content={pubDate} />}
+
+    <!-- Twitter Card -->
+    <meta name="twitter:card" content="summary_large_image" />
+    <meta name="twitter:title" content={fullTitle} />
+    <meta name="twitter:description" content={description} />
+    <meta name="twitter:image" content={`${siteUrl}${ogImage}`} />
+    <meta name="twitter:creator" content="@Rajath2005" />
+
+    <!-- Theme color -->
+    <meta name="theme-color" content="#0f172a" />
+
+    <!-- Structured Data -->
+    <script type="application/ld+json" set:html={JSON.stringify(websiteSchema)} />
+    {schema && <script type="application/ld+json" set:html={JSON.stringify(schema)} />}
+  </head>
+  <body class="min-h-screen flex flex-col">
+    <Header />
+    <main class="flex-1">
+      <slot />
+    </main>
+    <Footer />
+  </body>
+</html>

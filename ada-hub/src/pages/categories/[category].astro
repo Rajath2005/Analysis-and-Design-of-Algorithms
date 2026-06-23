@@ -1,0 +1,40 @@
+---
+import BaseLayout from '../../layouts/BaseLayout.astro';
+import AlgorithmCard from '../../components/AlgorithmCard.astro';
+import Breadcrumb from '../../components/Breadcrumb.astro';
+import { algorithms, categories } from '../../data/algorithms';
+
+export function getStaticPaths() {
+  return categories.map(cat => ({
+    params: { category: cat.slug },
+    props: { cat },
+  }));
+}
+
+const { cat } = Astro.props;
+const catAlgos = algorithms.filter(a => a.categorySlug === cat.slug);
+---
+
+<BaseLayout
+  title={`${cat.name} — ADA Lab Programs in C`}
+  description={`${cat.description}. Complete ${cat.name} programs in C for VTU BCSL40A: ${catAlgos.map(a => a.shortTitle).join(', ')}.`}
+  keywords={[cat.name.toLowerCase(), `${cat.slug} algorithms c`, 'ada lab programs', 'vtu bcsl40a']}
+>
+  <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-10">
+    <Breadcrumb crumbs={[
+      { label: 'Categories', href: '/categories' },
+      { label: cat.name },
+    ]} />
+
+    <h1 class="text-3xl sm:text-4xl font-bold text-dark-50 mb-3">{cat.name}</h1>
+    <p class="text-dark-400 mb-10 max-w-2xl">{cat.description}. {catAlgos.length} programs in C with full explanations for VTU BCSL40A.</p>
+
+    <div class="grid sm:grid-cols-2 lg:grid-cols-3 gap-4">
+      {catAlgos.map(algo => <AlgorithmCard {...algo} />)}
+    </div>
+
+    <div class="mt-10 text-center">
+      <a href="/algorithms" class="btn-secondary">View All Algorithms</a>
+    </div>
+  </div>
+</BaseLayout>

@@ -1,0 +1,142 @@
+---
+title: "How to Prepare for VTU ADA Lab Exams — Complete Guide"
+description: "Step-by-step guide to ace VTU BCSL40A ADA lab exams. Learn what to study, how to answer viva questions, common mistakes to avoid, and exam-day tips."
+pubDate: 2024-12-10
+tags: ["VTU", "ADA lab", "exam preparation", "BCSL40A", "tips"]
+author: "Rajath Kiran A"
+---
+
+## Understanding the VTU ADA Lab Exam Format
+
+The VTU BCSL40A ADA Lab exam typically consists of:
+
+1. **Practical Execution** — Write and run a C program for the assigned algorithm
+2. **Viva Voce** — Answer questions about the algorithm's logic, complexity, and applications
+3. **Lab Record** — Submit your completed lab record with all programs and outputs
+
+## The 13 Programs You Must Know
+
+Memorize this list — any program can be asked:
+
+1. Kruskal's Algorithm (Greedy MST)
+2. Prim's Algorithm (Greedy MST)
+3. Floyd's Algorithm (All-Pairs Shortest Path)
+4. Warshall's Algorithm (Transitive Closure)
+5. Dijkstra's Algorithm (Single Source Shortest Path)
+6. Topological Sorting
+7. 0/1 Knapsack Problem
+8. Fractional (Greedy) Knapsack
+9. Subset Sum Problem
+10. Selection Sort (with time analysis)
+11. Quick Sort (with time analysis)
+12. Merge Sort (with time analysis)
+13. N-Queens Problem
+
+## How to Write Programs Quickly in the Exam
+
+### Template to Follow
+
+For every program, structure your code as:
+
+1. **Includes and defines** — `#include<stdio.h>`, `#define MAX 10`, constants
+2. **Global variables** — adjacency matrix, arrays, counters
+3. **Helper functions** — `findmin()`, `place()`, `partition()`
+4. **Main algorithm function** — `kruskal()`, `floyd()`, `Nqueen()`
+5. **Main function** — input reading, function call, output printing
+
+### Golden Rules for Clean Code
+
+- Use `scanf` for input, `printf` for output
+- Use 1-based indexing for graph algorithms (index from 1, not 0)
+- Define `INFI 99` for infinity in graph problems
+- Always return 0 from main
+
+## Complexity You Must Memorize
+
+| Algorithm | Time | Space |
+|-----------|------|-------|
+| Kruskal's | O(E log E) | O(V) |
+| Prim's | O(V²) | O(V) |
+| Dijkstra's | O(V²) | O(V) |
+| Floyd's | O(V³) | O(V²) |
+| Warshall's | O(V³) | O(V²) |
+| Topological Sort | O(V+E) | O(V) |
+| 0/1 Knapsack | O(nW) | O(nW) |
+| Greedy Knapsack | O(n²) | O(1) |
+| Subset Sum | O(2ⁿ) | O(n) |
+| Selection Sort | O(n²) | O(1) |
+| Quick Sort | O(n log n) avg | O(log n) |
+| Merge Sort | O(n log n) | O(n) |
+| N-Queens | O(N!) | O(N) |
+
+## Essential Viva Questions
+
+### Questions Asked for EVERY Program
+- What is the time complexity? Space complexity?
+- What is the best/worst case?
+- What is the input and output format?
+- What data structure does the program use?
+- Give a real-world application.
+
+### Greedy Algorithms
+- **Q**: What is a greedy algorithm?
+- **A**: Makes locally optimal choices at each step hoping to achieve the global optimum.
+
+- **Q**: Does greedy always give the optimal solution?
+- **A**: Only when the problem has the greedy choice property and optimal substructure. For example, greedy works for Fractional Knapsack but NOT for 0/1 Knapsack.
+
+### Graph Algorithms
+- **Q**: What is a Minimum Spanning Tree?
+- **A**: A spanning tree of a weighted graph where the total edge weight is minimized. Contains V-1 edges, no cycles, connects all vertices.
+
+- **Q**: Difference between Kruskal's and Prim's?
+- **A**: Kruskal's sorts all edges and picks globally minimum edges (avoids cycles using union-find). Prim's grows the MST from a starting vertex, picking minimum edge to an unvisited vertex.
+
+### Dynamic Programming
+- **Q**: What is dynamic programming?
+- **A**: Solving problems by breaking them into overlapping subproblems, solving each once, and storing results. Requires optimal substructure and overlapping subproblems.
+
+### Backtracking
+- **Q**: What is backtracking?
+- **A**: Systematically exploring all possibilities and undoing (backtracking) incorrect choices to find all valid solutions.
+
+## Common Mistakes to Avoid
+
+1. **Forgetting 1-based indexing** in graph programs — use `i=1 to n`, not `i=0 to n-1`
+2. **Wrong INFI value** — use 99 or 999 consistently, not INT_MAX (causes overflow)
+3. **Not initializing arrays** — initialize visited[], dist[], root[] before use
+4. **Wrong condition in Dijkstra** — `dist[u] + wt[u][j] < dist[j]` not `<=`
+5. **Forgetting to print newline** after each row in matrix output
+
+## Exam Day Strategy
+
+### Before the Exam
+- Review all 13 programs one day before
+- Practice writing programs on paper (not just reading)
+- Know sample input for each program
+- Memorize complexity table
+
+### During the Exam
+1. Read the question carefully — identify the algorithm
+2. Write the include files and definitions first
+3. Write helper functions before the main algorithm
+4. Write the algorithm function
+5. Write main() — take input, call function, print output
+6. Compile and fix errors systematically
+7. Test with the standard sample input
+8. Be confident during viva — speak clearly
+
+### For Viva
+- Start with: "The time complexity is..."
+- Explain the main idea in 2-3 sentences
+- Give a real-world example
+- Know what happens when the input is special (empty graph, n=1, etc.)
+
+## Resources
+
+- [All 13 Algorithm Programs →](/algorithms)
+- [Complexity Cheat Sheet →](/)
+- [Viva Q&A for Each Algorithm →](/algorithms) (each page has 5 viva questions)
+- [GitHub Source Code →](https://github.com/Rajath2005/Analysis-and-Design-of-Algorithms)
+
+Good luck with your exam! You've got this! 🎯

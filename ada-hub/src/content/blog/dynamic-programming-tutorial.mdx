@@ -1,0 +1,165 @@
+---
+title: "Dynamic Programming Tutorial — From Zero to Hero"
+description: "A complete beginner-friendly tutorial on Dynamic Programming with examples from VTU ADA Lab: Floyd-Warshall, Warshall's, and 0/1 Knapsack with C code."
+pubDate: 2024-12-08
+tags: ["dynamic programming", "Floyd", "Warshall", "knapsack", "ADA", "VTU"]
+author: "Rajath Kiran A"
+---
+
+## What is Dynamic Programming?
+
+**Dynamic Programming (DP)** is an optimization technique that solves complex problems by:
+
+1. **Breaking** them into smaller overlapping subproblems
+2. **Solving** each subproblem exactly once
+3. **Storing** (memoizing) the results to avoid recomputation
+
+> "Those who cannot remember the past are condemned to repeat it." — This applies to algorithms too!
+
+## The Two Pillars of DP
+
+### 1. Optimal Substructure
+The optimal solution to the problem contains optimal solutions to its subproblems.
+
+### 2. Overlapping Subproblems
+The same subproblems are solved multiple times when using a naive recursive approach.
+
+If a problem has these two properties → Dynamic Programming is the right tool!
+
+## DP Approaches
+
+### Top-Down (Memoization)
+Start with the original problem, recurse, and cache results.
+
+```c
+int memo[100][100];  // Cache
+int solve(int i, int j) {
+    if(memo[i][j] != -1) return memo[i][j];  // Already computed
+    // Compute and cache
+    return memo[i][j] = compute(i, j);
+}
+```
+
+### Bottom-Up (Tabulation)
+Build solutions from base cases up to the final answer.
+
+```c
+// Build table iteratively
+for(int i = 0; i <= n; i++) {
+    for(int j = 0; j <= W; j++) {
+        dp[i][j] = ...; // Based on smaller subproblems
+    }
+}
+```
+
+VTU ADA Lab programs use the **bottom-up tabulation** approach.
+
+## Dynamic Programming in VTU ADA Lab
+
+### 1. Floyd's Algorithm — All Pairs Shortest Path
+
+**DP State**: `dist[i][j]` = shortest distance from vertex `i` to vertex `j`
+
+**Recurrence**:
+```
+dist[i][j] = min(dist[i][j], dist[i][k] + dist[k][j])
+```
+
+**Interpretation**: The shortest path from i to j, possibly going through vertex k, is either:
+- The direct path (current `dist[i][j]`), OR
+- The path through intermediate vertex k (`dist[i][k] + dist[k][j]`)
+
+```c
+void floyd() {
+    for(int k = 1; k <= n; k++)      // Try each intermediate vertex
+        for(int i = 1; i <= n; i++)  // For all source vertices
+            for(int j = 1; j <= n; j++)  // For all destination vertices
+                dist[i][j] = min(dist[i][j], dist[i][k] + dist[k][j]);
+}
+```
+
+[View complete Floyd's program →](/algorithms/floyd-algorithm)
+
+### 2. Warshall's Algorithm — Transitive Closure
+
+**DP State**: `D[i][j]` = 1 if vertex j is reachable from vertex i
+
+**Recurrence**:
+```
+D[i][j] = D[i][j] OR (D[i][k] AND D[k][j])
+```
+
+**Interpretation**: j is reachable from i if:
+- It was already reachable directly, OR
+- We can reach k from i AND reach j from k
+
+```c
+void warshall() {
+    for(int k = 1; k <= n; k++)
+        for(int i = 1; i <= n; i++)
+            for(int j = 1; j <= n; j++)
+                D[i][j] = D[i][j] || (D[i][k] && D[k][j]);
+}
+```
+
+[View complete Warshall's program →](/algorithms/warshall-algorithm)
+
+### 3. 0/1 Knapsack
+
+**DP State**: `v[i][j]` = maximum profit using items 1..i with capacity j
+
+**Recurrence**:
+```
+if wt[i] > j:
+    v[i][j] = v[i-1][j]           // Can't include item i
+else:
+    v[i][j] = max(v[i-1][j],      // Exclude item i
+                  v[i-1][j-wt[i]] + val[i])  // Include item i
+```
+
+**Base cases**: `v[0][j] = 0` (no items) and `v[i][0] = 0` (no capacity)
+
+```c
+int knap() {
+    for(int i = 0; i <= n; i++) {
+        for(int j = 0; j <= c; j++) {
+            if(i == 0 || j == 0)
+                v[i][j] = 0;
+            else if(wt[i] > j)
+                v[i][j] = v[i-1][j];
+            else
+                v[i][j] = max(v[i-1][j], v[i-1][j-wt[i]] + val[i]);
+        }
+    }
+    return v[n][c];
+}
+```
+
+[View complete 0/1 Knapsack program →](/algorithms/01-knapsack-problem)
+
+## DP Problem-Solving Framework
+
+1. **Identify** the optimal substructure and overlapping subproblems
+2. **Define** the DP state — what does `dp[i][j]` represent?
+3. **Write** the recurrence relation
+4. **Define** base cases
+5. **Determine** the fill order (which cells to compute first)
+6. **Extract** the answer from the table
+
+## When to Use DP vs Greedy
+
+| Situation | Algorithm |
+|-----------|-----------|
+| Fractional items allowed | Greedy (Fractional Knapsack) |
+| Items must be whole (0 or 1) | Dynamic Programming (0/1 Knapsack) |
+| Single source shortest path, no negative weights | Greedy (Dijkstra's) |
+| All pairs shortest paths | Dynamic Programming (Floyd's) |
+
+## Common DP Patterns
+
+1. **1D DP**: `dp[i]` depends on `dp[i-1]` (Fibonacci, climbing stairs)
+2. **2D DP**: `dp[i][j]` depends on `dp[i-1][j]`, `dp[i][j-1]` (Knapsack, LCS)
+3. **Interval DP**: `dp[l][r]` solved using `dp[l][k]` and `dp[k+1][r]`
+4. **All-Pairs**: Triple loop over k, i, j (Floyd-Warshall)
+
+[Explore all DP programs →](/categories/dynamic-programming)

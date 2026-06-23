@@ -1,0 +1,146 @@
+---
+title: "Backtracking Algorithms — N-Queens and Subset Sum Explained"
+description: "Learn backtracking algorithms with complete C examples. Master N-Queens and Subset Sum problems with state space trees, pruning strategies, and viva Q&A for VTU ADA lab."
+pubDate: 2024-12-15
+tags: ["backtracking", "N-Queens", "subset sum", "algorithms", "ADA", "VTU"]
+author: "Rajath Kiran A"
+---
+
+## What is Backtracking?
+
+**Backtracking** is a systematic algorithmic technique that explores all possible solutions by building candidates incrementally and abandoning a candidate as soon as it's determined that it cannot lead to a valid solution.
+
+Think of it as navigating a maze:
+- Try a path
+- If you hit a dead end, **backtrack** to the last decision point
+- Try a different path
+- Repeat until you find the exit (or all exits)
+
+## Core Concepts
+
+### State Space Tree
+A tree where:
+- **Root**: empty solution
+- **Each node**: a partial solution
+- **Each edge**: a choice made
+- **Leaf nodes**: complete solutions or dead ends
+
+### Pruning
+The key optimization in backtracking — **pruning** eliminates branches of the state space tree that cannot lead to a valid solution, dramatically reducing the search space.
+
+### Bounding Function
+A function that determines whether the current partial solution can lead to a valid complete solution. If not, prune the branch.
+
+## Backtracking in VTU ADA Lab
+
+### 1. N-Queens Problem
+
+**Problem**: Place N queens on an N×N chessboard such that no two queens attack each other.
+
+**State**: `col[r]` = column of queen in row `r`
+
+**Constraint check** (the `place()` function):
+```c
+int place(int r) {
+    for(int i = 1; i < r; i++) {
+        // Same column: col[i] == col[r]
+        // Same diagonal: abs(i-r) == abs(col[i]-col[r])
+        if(col[i] == col[r] || abs(i-r) == abs(col[i]-col[r]))
+            return 0;  // Not safe
+    }
+    return 1;  // Safe to place
+}
+```
+
+**Algorithm flow**:
+```
+row 1: try col 1,2,3,...,N
+  row 2: try col 1,2,...,N (skip if unsafe)
+    row 3: try col 1,2,...,N (skip if unsafe)
+      ...
+        row N: solution found! count++, print board
+    backtrack: try next column in row 3
+  backtrack: try next column in row 2
+...
+```
+
+**For N=4**: Only 2 solutions exist: (2,4,1,3) and (3,1,4,2)
+
+**For N=8**: 92 solutions exist.
+
+[View complete N-Queens program →](/algorithms/n-queens-problem)
+
+### 2. Subset Sum Problem
+
+**Problem**: Find all subsets of a set that sum to a target value `d`.
+
+**State**: `x[k]` = 1 if element `k` is included, 0 if excluded
+
+**Pruning conditions**:
+```
+Include set[k]:
+  if s + set[k] > d: PRUNE (exceeds target)
+  if s + set[k] == d: SOLUTION found
+  if s + set[k] < d: recurse with k+1
+
+Exclude set[k]:
+  if remaining elements can still reach d: recurse
+  else: PRUNE
+```
+
+**Why elements must be sorted**: Sorting allows earlier pruning. If `set[k]` already exceeds what we need, all subsequent (larger) elements would too.
+
+[View complete Subset Sum program →](/algorithms/subset-sum)
+
+## Comparing N-Queens and Subset Sum
+
+| Feature | N-Queens | Subset Sum |
+|---------|----------|------------|
+| Goal | Find all valid arrangements | Find all valid subsets |
+| State | Column positions | Inclusion/exclusion |
+| Constraint | No attacks | Sum equals target |
+| Pruning | Safety check | Sum bounds |
+| Complexity | O(N!) | O(2ⁿ) |
+
+## State Space Tree for N-Queens (N=4)
+
+```
+                    (start)
+         col=1      col=2      col=3      col=4
+        /           |           |           \
+   row1=1         row1=2      row1=3       row1=4
+   /  |  \  \    /  |  \  \
+ r2=1 2  3  4  1  2  3  4   ...
+ ✗  ✗  ✓  ...
+```
+
+(✗ = pruned, ✓ = safe to proceed)
+
+## Backtracking vs Other Paradigms
+
+| Paradigm | Approach | Completeness |
+|----------|----------|--------------|
+| Backtracking | Explore + prune | Finds ALL solutions |
+| Greedy | One greedy choice | Finds ONE (possibly optimal) |
+| Dynamic Programming | All subproblems | Finds ONE optimal |
+| Brute Force | All possibilities | Finds ALL but slow |
+
+Backtracking is essentially a **smarter brute force** — it still explores all possibilities but prunes dead ends early.
+
+## Key Differences: Explicit vs Implicit Constraints
+
+- **Explicit constraints**: Rules that must be satisfied (queens not in same row/column/diagonal; subset sum ≤ target)
+- **Implicit constraints**: Requirements that define the valid solution space (each queen must be on the board; elements must be positive)
+
+## Tips for Viva
+
+**Q: What is the difference between backtracking and recursion?**
+A: All backtracking uses recursion, but not all recursion is backtracking. Backtracking specifically involves undoing previous choices when they lead to invalid states.
+
+**Q: How does pruning help?**
+A: Pruning eliminates branches of the state space tree that cannot lead to a valid solution, reducing the actual number of nodes explored.
+
+**Q: What is the time complexity of N-Queens?**
+A: O(N!) in the worst case — at each of the N rows, we might try all N columns. However, pruning significantly reduces actual execution time.
+
+[Explore all backtracking programs →](/categories/backtracking)

@@ -1,0 +1,255 @@
+You are a senior staff engineer, SEO architect, technical writer, and Astro expert.
+
+Build a production-ready educational website around my GitHub repository:
+
+Repository:
+https://github.com/Rajath2005/Analysis-and-Design-of-Algorithms
+
+Goal:
+Create the best SEO-focused Analysis and Design of Algorithms learning website for students while simultaneously promoting my GitHub repository and personal brand.
+
+Primary objectives:
+
+1. Rank on Google for:
+
+   * Analysis and Design of Algorithms
+   * ADA Lab Programs
+   * VTU ADA Lab Programs
+   * Design and Analysis of Algorithms Programs in C
+   * Kruskal Algorithm Program in C
+   * Prim's Algorithm Program in C
+   * Dijkstra Algorithm Program in C
+   * Floyd Algorithm Program in C
+   * Warshall Algorithm Program in C
+   * Quick Sort Program in C
+   * Merge Sort Program in C
+   * N Queens Program in C
+   * Subset Sum Problem Program in C
+   * 0/1 Knapsack Program in C
+   * Greedy Knapsack Program in C
+   * Topological Sorting Program in C
+
+2. Drive visitors to my GitHub repository.
+
+3. Build personal authority as a computer science student and developer.
+
+4. Generate long-term organic traffic from search engines.
+
+Tech Stack Requirements:
+
+* Astro latest version
+* TypeScript
+* Tailwind CSS
+* MDX support
+* Astro Sitemap
+* Astro SEO
+* Astro Compress
+* Shiki syntax highlighting
+* Static site generation
+* Mobile-first design
+* Dark mode
+* No database
+* No authentication
+* No paid services
+* Fully deployable on Replit free tier
+
+Branding:
+
+Name:
+ADA Hub
+
+Subtitle:
+Analysis and Design of Algorithms Learning Portal
+
+Author:
+Rajath Kiran
+
+Design Style:
+
+* Modern
+* Fast
+* Minimal
+* Developer-focused
+* Similar quality level to documentation websites
+* Excellent readability
+* Strong typography
+* Accessible
+* SEO-first
+
+Site Structure:
+
+Home Page
+
+Sections:
+
+* Hero
+* Featured Algorithms
+* Algorithm Categories
+* Complexity Cheat Sheet
+* Popular Programs
+* GitHub CTA
+* About Author
+* Latest Articles
+
+Algorithm Categories:
+
+1. Greedy Algorithms
+
+   * Kruskal
+   * Prim
+   * Dijkstra
+   * Greedy Knapsack
+
+2. Dynamic Programming
+
+   * Floyd
+   * Warshall
+   * 0/1 Knapsack
+
+3. Divide and Conquer
+
+   * Merge Sort
+   * Quick Sort
+
+4. Backtracking
+
+   * N Queens
+   * Subset Sum
+
+5. Graph Algorithms
+
+   * Dijkstra
+   * Prim
+   * Kruskal
+   * Topological Sort
+
+For each algorithm create a dedicated SEO page:
+
+URL example:
+/algorithms/kruskal-algorithm
+
+Each page must contain:
+
+* Introduction
+* Problem Statement
+* Real World Applications
+* Algorithm Explanation
+* Step-by-Step Procedure
+* Flow Explanation
+* Complete C Program
+* Sample Input
+* Sample Output
+* Dry Run
+* Time Complexity
+* Space Complexity
+* Advantages
+* Disadvantages
+* Viva Questions
+* Interview Questions
+* Related Algorithms
+* GitHub Source Link
+
+Create at least 15 algorithm pages.
+
+Blog System:
+
+Create content collections for articles.
+
+Sample article topics:
+
+* What is Analysis and Design of Algorithms?
+* Big O Notation Explained
+* Difference Between BFS and DFS
+* Dynamic Programming Tutorial
+* Greedy Algorithms Guide
+* Divide and Conquer Explained
+* How to Prepare for ADA Lab Exams
+* Top 20 Algorithm Interview Questions
+
+SEO Requirements:
+
+* Dynamic meta tags
+* Open Graph tags
+* Twitter cards
+* Canonical URLs
+* Structured Data JSON-LD
+* Breadcrumb schema
+* Article schema
+* FAQ schema
+* Sitemap.xml
+* robots.txt
+* RSS feed
+* Clean URLs
+
+Internal Linking Strategy:
+
+Every page must:
+
+* Link to 3 related algorithms
+* Link to GitHub repository
+* Link to category page
+* Link to complexity guide
+
+GitHub Integration:
+
+Create a GitHub section that automatically displays:
+
+* Repository stars
+* Forks
+* Latest commit
+* GitHub link
+
+Use GitHub public API.
+
+Personal Brand Section:
+
+Create:
+
+* About Rajath
+* Projects
+* GitHub profile
+* Portfolio link
+* Contact links
+
+Performance Targets:
+
+* Lighthouse Performance 95+
+* Accessibility 95+
+* Best Practices 95+
+* SEO 100
+
+Content Strategy:
+
+Generate content architecture optimized for long-tail keywords.
+
+Examples:
+
+* "Kruskal algorithm program in c with output"
+* "quick sort algorithm in c for ada lab"
+* "vtu ada lab programs"
+* "analysis and design of algorithms notes"
+
+Required Deliverables:
+
+1. Complete file tree
+2. Astro configuration
+3. Tailwind configuration
+4. Content collections
+5. Reusable layouts
+6. Reusable components
+7. SEO implementation
+8. Blog system
+9. Algorithm pages
+10. Sitemap setup
+11. RSS setup
+12. GitHub API integration
+13. Deployment instructions for Replit
+
+Before generating code:
+
+1. Analyze the repository structure.
+2. Propose complete file tree.
+3. Explain architecture decisions.
+4. Wait for approval.
+
+Then generate code file-by-file in implementation order.

@@ -1,0 +1,22 @@
+---
+import BaseLayout from '../../layouts/BaseLayout.astro';
+import CategoryCard from '../../components/CategoryCard.astro';
+import Breadcrumb from '../../components/Breadcrumb.astro';
+import { categories } from '../../data/algorithms';
+---
+
+<BaseLayout
+  title="Algorithm Categories — ADA Hub"
+  description="Browse ADA Lab algorithms by category: Greedy, Dynamic Programming, Divide and Conquer, Backtracking, and Graph Algorithms with complete C programs."
+  keywords={['algorithm categories', 'greedy algorithms c', 'dynamic programming c', 'backtracking c', 'ada lab categories']}
+>
+  <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-10">
+    <Breadcrumb crumbs={[{ label: 'Categories' }]} />
+    <h1 class="text-3xl sm:text-4xl font-bold text-dark-50 mb-3">Algorithm Categories</h1>
+    <p class="text-dark-400 mb-10">Browse programs organized by algorithmic paradigm.</p>
+
+    <div class="grid sm:grid-cols-2 lg:grid-cols-3 gap-6">
+      {categories.map(cat => <CategoryCard {...cat} />)}
+    </div>
+  </div>
+</BaseLayout>

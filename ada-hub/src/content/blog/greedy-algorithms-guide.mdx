@@ -1,0 +1,112 @@
+---
+title: "Greedy Algorithms — A Complete Guide for ADA Students"
+description: "Master greedy algorithms with real examples from VTU BCSL40A: Kruskal's, Prim's, Dijkstra's, and Fractional Knapsack. Learn when greedy works and when it doesn't."
+pubDate: 2024-12-05
+tags: ["greedy", "Kruskal", "Prim", "Dijkstra", "algorithms", "ADA"]
+author: "Rajath Kiran A"
+---
+
+## What is a Greedy Algorithm?
+
+A **greedy algorithm** builds a solution step by step, always choosing the **locally optimal choice** — the best option available at the current moment — hoping it leads to a globally optimal solution.
+
+> "Take what looks best now, and never look back."
+
+### Key Properties of Greedy Algorithms
+
+1. **Greedy Choice Property**: A globally optimal solution can be reached by making locally optimal choices
+2. **Optimal Substructure**: An optimal solution to the problem contains optimal solutions to subproblems
+
+## Greedy Algorithms in VTU ADA Lab
+
+The VTU BCSL40A lab covers 4 greedy algorithms:
+
+### 1. Kruskal's Algorithm — Minimum Spanning Tree
+
+**Greedy choice**: Always pick the minimum weight edge that doesn't form a cycle.
+
+```c
+// Simplified Kruskal logic
+sort_edges_by_weight();
+for each edge (u, v) in sorted order:
+    if find(u) != find(v):  // No cycle
+        add_to_MST(u, v)
+        union(u, v)
+```
+
+**Why greedy works**: At each step, picking the minimum safe edge is always part of some MST (the Cut Property theorem guarantees this).
+
+[View complete Kruskal's program →](/algorithms/kruskal-algorithm)
+
+### 2. Prim's Algorithm — Minimum Spanning Tree
+
+**Greedy choice**: Always pick the minimum weight edge connecting the current MST to a new vertex.
+
+**Why greedy works**: The minimum edge crossing any cut must be in the MST (Cut Property).
+
+[View complete Prim's program →](/algorithms/prims-algorithm)
+
+### 3. Dijkstra's Algorithm — Shortest Path
+
+**Greedy choice**: Always process the unvisited vertex with the shortest known distance.
+
+```c
+// Dijkstra greedy step
+u = vertex with minimum dist[u] that is unvisited
+mark u as visited
+for each neighbor v of u:
+    if dist[u] + weight(u,v) < dist[v]:
+        dist[v] = dist[u] + weight(u,v)
+```
+
+**Why greedy works**: With non-negative edge weights, once we finalize a vertex's distance, it cannot be improved — no shorter path through future vertices is possible.
+
+[View complete Dijkstra's program →](/algorithms/dijkstra-algorithm)
+
+### 4. Fractional Knapsack
+
+**Greedy choice**: Always pick the item with the highest profit-to-weight ratio.
+
+**Why greedy works**: If we don't take as much of the highest-ratio item as possible, we can always swap it in for a lower-ratio item and improve the solution.
+
+[View complete Fractional Knapsack program →](/algorithms/greedy-knapsack)
+
+## When Does Greedy Work?
+
+Greedy algorithms work when:
+- The problem has **optimal substructure** (global optimum built from local optima)
+- The **greedy choice property** holds (local optimal = global optimal)
+
+## When Greedy FAILS
+
+**Counter-example: 0/1 Knapsack**
+
+Items: w=[1,2,3], v=[6,10,12], W=5
+
+- Greedy by ratio picks item 1 (ratio 6), item 2 (ratio 5) → profit = 6 + 10 = 16
+- Optimal: items 2 + 3 → profit = 10 + 12 = 22
+
+Greedy gave a wrong answer! That's why 0/1 Knapsack needs Dynamic Programming.
+
+**Counter-example: Coin Change Problem (non-standard denominations)**
+
+Coins = {1, 3, 4}, target = 6
+- Greedy picks 4 + 1 + 1 = 3 coins
+- Optimal: 3 + 3 = 2 coins
+
+## Greedy vs Dynamic Programming
+
+| Feature | Greedy | Dynamic Programming |
+|---------|--------|---------------------|
+| Approach | One pass, local choices | Explore all subproblems |
+| Time | Usually faster | More thorough |
+| Guarantee | Only works for special problems | Always finds optimal |
+| Examples | Kruskal, Dijkstra, Fractional Knapsack | Floyd, 0/1 Knapsack |
+
+## Summary
+
+Greedy algorithms are powerful tools when applied to the right problems. In the VTU ADA lab, greedy algorithms solve **MST** (Kruskal's, Prim's), **SSSP** (Dijkstra's), and **Fractional Knapsack** optimally.
+
+Always verify: does the greedy choice property hold? If yes, greedy is your best friend — fast, simple, and optimal.
+
+[Explore all greedy algorithm programs →](/categories/greedy)

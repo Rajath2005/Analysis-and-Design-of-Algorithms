@@ -1,0 +1,39 @@
+---
+import BaseLayout from '../../layouts/BaseLayout.astro';
+import Breadcrumb from '../../components/Breadcrumb.astro';
+import { getCollection } from 'astro:content';
+
+const posts = (await getCollection('blog')).sort(
+  (a, b) => b.data.pubDate.valueOf() - a.data.pubDate.valueOf()
+);
+---
+
+<BaseLayout
+  title="Blog — ADA Hub Algorithm Articles"
+  description="In-depth articles on Analysis and Design of Algorithms, Big O notation, sorting algorithms, dynamic programming, greedy algorithms, and VTU ADA lab exam tips."
+  keywords={['ada algorithms blog', 'algorithm articles', 'big o notation tutorial', 'vtu ada exam tips', 'data structures blog']}
+>
+  <div class="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 py-10">
+    <Breadcrumb crumbs={[{ label: 'Blog' }]} />
+    <h1 class="text-3xl sm:text-4xl font-bold text-dark-50 mb-3">Algorithm Articles</h1>
+    <p class="text-dark-400 mb-10">Deep-dives into algorithms, complexity analysis, exam preparation, and CS concepts.</p>
+
+    <div class="space-y-6">
+      {posts.map(post => (
+        <a href={`/blog/${post.slug}`} class="card p-6 block hover:-translate-y-0.5 transition-all duration-200 hover:border-brand-800 group">
+          <div class="flex flex-wrap items-center gap-2 mb-3">
+            {post.data.tags.slice(0, 3).map(tag => (
+              <span class="badge badge-green text-xs">{tag}</span>
+            ))}
+            <span class="text-dark-600 text-xs ml-auto">
+              {post.data.pubDate.toLocaleDateString('en-US', { year: 'numeric', month: 'short', day: 'numeric' })}
+            </span>
+          </div>
+          <h2 class="text-lg font-bold text-dark-100 group-hover:text-brand-400 transition-colors mb-2">{post.data.title}</h2>
+          <p class="text-dark-400 text-sm leading-relaxed">{post.data.description}</p>
+          <div class="mt-4 text-brand-500 text-sm font-medium">Read article →</div>
+        </a>
+      ))}
+    </div>
+  </div>
+</BaseLayout>

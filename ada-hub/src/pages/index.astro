@@ -1,0 +1,253 @@
+---
+import BaseLayout from '../layouts/BaseLayout.astro';
+import AlgorithmCard from '../components/AlgorithmCard.astro';
+import CategoryCard from '../components/CategoryCard.astro';
+import GitHubStats from '../components/GitHubStats.astro';
+import { algorithms, categories } from '../data/algorithms';
+
+const featured = algorithms.slice(0, 6);
+
+const complexityData = [
+  { name: "Kruskal's MST", best: 'O(E log E)', avg: 'O(E log E)', worst: 'O(E log E)', space: 'O(V)' },
+  { name: "Prim's MST", best: 'O(V²)', avg: 'O(V²)', worst: 'O(V²)', space: 'O(V)' },
+  { name: "Dijkstra's SSSP", best: 'O(V²)', avg: 'O(V²)', worst: 'O(V²)', space: 'O(V)' },
+  { name: "Floyd-Warshall", best: 'O(V³)', avg: 'O(V³)', worst: 'O(V³)', space: 'O(V²)' },
+  { name: "Quick Sort", best: 'O(n log n)', avg: 'O(n log n)', worst: 'O(n²)', space: 'O(log n)' },
+  { name: "Merge Sort", best: 'O(n log n)', avg: 'O(n log n)', worst: 'O(n log n)', space: 'O(n)' },
+  { name: "N-Queens", best: 'O(N!)', avg: 'O(N!)', worst: 'O(N!)', space: 'O(N)' },
+  { name: "0/1 Knapsack", best: 'O(nW)', avg: 'O(nW)', worst: 'O(nW)', space: 'O(nW)' },
+];
+
+const schema = {
+  "@context": "https://schema.org",
+  "@type": "EducationalOrganization",
+  "name": "ADA Hub",
+  "description": "Analysis and Design of Algorithms Learning Portal for VTU BCSL40A students",
+  "url": "https://ada-hub.replit.app",
+  "founder": {
+    "@type": "Person",
+    "name": "Rajath Kiran",
+    "url": "https://github.com/Rajath2005"
+  },
+  "teaches": "Analysis and Design of Algorithms",
+  "educationalLevel": "Undergraduate"
+};
+---
+
+<BaseLayout
+  title="ADA Hub — Analysis and Design of Algorithms Learning Portal"
+  description="Master Analysis and Design of Algorithms with complete C programs, explanations, and VTU BCSL40A lab solutions. Kruskal, Prim, Dijkstra, Floyd, Quick Sort, Merge Sort, N-Queens and more."
+  keywords={['analysis and design of algorithms', 'ADA lab programs', 'VTU BCSL40A', 'algorithm programs in C', 'kruskal algorithm c', 'dijkstra algorithm c']}
+  schema={schema}
+>
+  <!-- Hero -->
+  <section class="relative overflow-hidden bg-dark-900 border-b border-dark-800">
+    <div class="absolute inset-0 bg-gradient-to-br from-brand-950/30 via-transparent to-transparent pointer-events-none"></div>
+    <div class="absolute inset-0 bg-[radial-gradient(ellipse_at_top_right,rgba(34,197,94,0.08),transparent_60%)] pointer-events-none"></div>
+
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-20 sm:py-28">
+      <div class="grid lg:grid-cols-2 gap-12 items-center">
+        <div>
+          <div class="inline-flex items-center gap-2 px-3 py-1 bg-brand-950 border border-brand-800 rounded-full text-brand-400 text-sm font-medium mb-6">
+            <span class="w-2 h-2 bg-brand-500 rounded-full animate-pulse"></span>
+            VTU BCSL40A · 13 Complete Programs
+          </div>
+
+          <h1 class="text-4xl sm:text-5xl lg:text-6xl font-bold text-dark-50 leading-tight mb-6">
+            Analysis &amp; Design of
+            <span class="text-brand-400"> Algorithms</span>
+          </h1>
+
+          <p class="text-lg text-dark-400 leading-relaxed mb-8 max-w-lg">
+            Complete C programs, detailed explanations, complexity analysis, and viva questions for every VTU ADA Lab algorithm. Built for students, loved by developers.
+          </p>
+
+          <div class="flex flex-wrap gap-4">
+            <a href="/algorithms" class="btn-primary">
+              Browse Algorithms
+              <svg class="w-4 h-4" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5l7 7-7 7"/>
+              </svg>
+            </a>
+            <a href="https://github.com/Rajath2005/Analysis-and-Design-of-Algorithms" target="_blank" rel="noopener noreferrer" class="btn-secondary">
+              <svg class="w-4 h-4" viewBox="0 0 24 24" fill="currentColor">
+                <path d="M12 0C5.374 0 0 5.373 0 12c0 5.302 3.438 9.8 8.207 11.387.599.111.793-.261.793-.577v-2.234c-3.338.726-4.033-1.416-4.033-1.416-.546-1.387-1.333-1.756-1.333-1.756-1.089-.745.083-.729.083-.729 1.205.084 1.839 1.237 1.839 1.237 1.07 1.834 2.807 1.304 3.492.997.107-.775.418-1.305.762-1.604-2.665-.305-5.467-1.334-5.467-5.931 0-1.311.469-2.381 1.236-3.221-.124-.303-.535-1.524.117-3.176 0 0 1.008-.322 3.301 1.23A11.509 11.509 0 0112 5.803c1.02.005 2.047.138 3.006.404 2.291-1.552 3.297-1.23 3.297-1.23.653 1.653.242 2.874.118 3.176.77.84 1.235 1.911 1.235 3.221 0 4.609-2.807 5.624-5.479 5.921.43.372.823 1.102.823 2.222v3.293c0 .319.192.694.801.576C20.566 21.797 24 17.3 24 12c0-6.627-5.373-12-12-12z"/>
+              </svg>
+              GitHub Repository
+            </a>
+          </div>
+
+          <div class="flex items-center gap-6 mt-10 text-sm text-dark-500">
+            <div class="flex items-center gap-2"><span class="text-brand-500 font-bold text-lg">13</span> Algorithms</div>
+            <div class="w-px h-4 bg-dark-700"></div>
+            <div class="flex items-center gap-2"><span class="text-brand-500 font-bold text-lg">5</span> Categories</div>
+            <div class="w-px h-4 bg-dark-700"></div>
+            <div class="flex items-center gap-2"><span class="text-brand-500 font-bold text-lg">100%</span> Free</div>
+          </div>
+        </div>
+
+        <div class="hidden lg:block">
+          <div class="bg-dark-800 border border-dark-700 rounded-xl overflow-hidden shadow-2xl">
+            <div class="bg-dark-900 border-b border-dark-700 px-4 py-3 flex items-center gap-2">
+              <div class="w-3 h-3 rounded-full bg-red-500/60"></div>
+              <div class="w-3 h-3 rounded-full bg-yellow-500/60"></div>
+              <div class="w-3 h-3 rounded-full bg-green-500/60"></div>
+              <span class="ml-3 text-dark-500 text-xs font-mono">kruskal.c</span>
+            </div>
+            <pre class="p-4 text-sm font-mono overflow-x-auto text-dark-300 leading-relaxed"><code><span class="text-purple-400">#include</span><span class="text-brand-400">&lt;stdio.h&gt;</span>
+<span class="text-purple-400">#define</span> <span class="text-blue-400">MAX</span> <span class="text-yellow-400">10</span>
+
+<span class="text-blue-400">int</span> <span class="text-dark-100">a[MAX][MAX], n, cost</span> = <span class="text-yellow-400">0</span>;
+
+<span class="text-blue-400">void</span> <span class="text-green-400">kruskal</span>() {"{"}
+  <span class="text-blue-400">int</span> <span class="text-dark-100">root[MAX], i, v1, v2</span>;
+  <span class="text-purple-400">for</span>(<span class="text-dark-100">i</span>=<span class="text-yellow-400">1</span>; <span class="text-dark-100">i</span>&lt;=<span class="text-dark-100">n</span>; <span class="text-dark-100">i</span>++)
+    <span class="text-dark-100">root[i]</span> = <span class="text-dark-100">i</span>;
+  <span class="text-dark-500">// Greedily pick min edges...</span>
+  <span class="text-dark-100">i</span> = <span class="text-yellow-400">0</span>;
+  <span class="text-purple-400">while</span>(<span class="text-dark-100">i</span> != <span class="text-dark-100">n</span>-<span class="text-yellow-400">1</span>) {"{"}
+    <span class="text-green-400">findmin</span>(&amp;<span class="text-dark-100">v1</span>, &amp;<span class="text-dark-100">v2</span>);
+    <span class="text-purple-400">if</span>(<span class="text-dark-100">root[v1]</span> != <span class="text-dark-100">root[v2]</span>)
+      <span class="text-green-400">update</span>(<span class="text-dark-100">root, v1, v2</span>);
+  {"}"}
+{"}"}</code></pre>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Featured Algorithms -->
+  <section class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-16">
+    <div class="flex items-end justify-between mb-8">
+      <div>
+        <h2 class="section-title">Featured Algorithms</h2>
+        <p class="section-subtitle">Complete C programs with explanations and complexity analysis</p>
+      </div>
+      <a href="/algorithms" class="text-brand-500 hover:text-brand-400 text-sm font-medium hidden sm:block">
+        View all →
+      </a>
+    </div>
+
+    <div class="grid sm:grid-cols-2 lg:grid-cols-3 gap-4">
+      {featured.map(algo => (
+        <AlgorithmCard {...algo} />
+      ))}
+    </div>
+
+    <div class="mt-6 text-center sm:hidden">
+      <a href="/algorithms" class="btn-secondary">View All Algorithms</a>
+    </div>
+  </section>
+
+  <!-- Categories -->
+  <section class="bg-dark-950/50 border-y border-dark-800">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-16">
+      <div class="text-center mb-10">
+        <h2 class="section-title">Algorithm Categories</h2>
+        <p class="section-subtitle">Organized by algorithmic paradigm</p>
+      </div>
+
+      <div class="grid sm:grid-cols-2 lg:grid-cols-3 gap-4">
+        {categories.map(cat => (
+          <CategoryCard {...cat} />
+        ))}
+      </div>
+    </div>
+  </section>
+
+  <!-- Complexity Cheat Sheet -->
+  <section class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-16">
+    <div class="text-center mb-10">
+      <h2 class="section-title">Complexity Cheat Sheet</h2>
+      <p class="section-subtitle">Quick reference for all VTU ADA Lab algorithm complexities</p>
+    </div>
+
+    <div class="card overflow-x-auto">
+      <table class="w-full text-sm">
+        <thead>
+          <tr class="bg-dark-900 border-b border-dark-700">
+            <th class="text-left p-4 text-dark-300 font-semibold">Algorithm</th>
+            <th class="text-center p-4 text-dark-300 font-semibold">Best</th>
+            <th class="text-center p-4 text-dark-300 font-semibold">Average</th>
+            <th class="text-center p-4 text-dark-300 font-semibold">Worst</th>
+            <th class="text-center p-4 text-dark-300 font-semibold">Space</th>
+          </tr>
+        </thead>
+        <tbody>
+          {complexityData.map((row, i) => (
+            <tr class={`border-b border-dark-800 ${i % 2 === 0 ? '' : 'bg-dark-900/30'}`}>
+              <td class="p-4 font-medium text-dark-200">{row.name}</td>
+              <td class="p-4 text-center font-mono text-brand-400 text-xs">{row.best}</td>
+              <td class="p-4 text-center font-mono text-yellow-400 text-xs">{row.avg}</td>
+              <td class="p-4 text-center font-mono text-red-400 text-xs">{row.worst}</td>
+              <td class="p-4 text-center font-mono text-blue-400 text-xs">{row.space}</td>
+            </tr>
+          ))}
+        </tbody>
+      </table>
+    </div>
+  </section>
+
+  <!-- GitHub CTA + About -->
+  <section class="bg-dark-950/50 border-y border-dark-800">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-16">
+      <div class="grid lg:grid-cols-2 gap-10">
+        <!-- GitHub CTA -->
+        <div>
+          <h2 class="section-title mb-2">GitHub Repository</h2>
+          <p class="text-dark-400 mb-6 leading-relaxed">All source code is open-source and available on GitHub. Star the repository to stay updated with new programs and improvements.</p>
+          <GitHubStats />
+        </div>
+
+        <!-- About Author -->
+        <div class="flex flex-col justify-center">
+          <h2 class="section-title mb-4">About the Author</h2>
+          <div class="card p-6">
+            <div class="flex items-center gap-4 mb-4">
+              <div class="w-14 h-14 bg-gradient-to-br from-brand-600 to-brand-800 rounded-full flex items-center justify-center text-white font-bold text-xl">
+                R
+              </div>
+              <div>
+                <div class="font-bold text-dark-100 text-lg">Rajath Kiran</div>
+                <div class="text-dark-500 text-sm">Computer Science Student · Developer</div>
+              </div>
+            </div>
+            <p class="text-dark-400 text-sm leading-relaxed mb-5">
+              Passionate CS student building open-source educational resources for fellow students. This repository contains complete VTU ADA Lab programs with detailed explanations to help you ace your exams.
+            </p>
+            <div class="flex gap-3">
+              <a href="https://github.com/Rajath2005" target="_blank" rel="noopener noreferrer" class="btn-secondary text-sm py-2">
+                <svg class="w-4 h-4" viewBox="0 0 24 24" fill="currentColor"><path d="M12 0C5.374 0 0 5.373 0 12c0 5.302 3.438 9.8 8.207 11.387.599.111.793-.261.793-.577v-2.234c-3.338.726-4.033-1.416-4.033-1.416-.546-1.387-1.333-1.756-1.333-1.756-1.089-.745.083-.729.083-.729 1.205.084 1.839 1.237 1.839 1.237 1.07 1.834 2.807 1.304 3.492.997.107-.775.418-1.305.762-1.604-2.665-.305-5.467-1.334-5.467-5.931 0-1.311.469-2.381 1.236-3.221-.124-.303-.535-1.524.117-3.176 0 0 1.008-.322 3.301 1.23A11.509 11.509 0 0112 5.803c1.02.005 2.047.138 3.006.404 2.291-1.552 3.297-1.23 3.297-1.23.653 1.653.242 2.874.118 3.176.77.84 1.235 1.911 1.235 3.221 0 4.609-2.807 5.624-5.479 5.921.43.372.823 1.102.823 2.222v3.293c0 .319.192.694.801.576C20.566 21.797 24 17.3 24 12c0-6.627-5.373-12-12-12z"/></svg>
+                @Rajath2005
+              </a>
+              <a href="/about" class="btn-primary text-sm py-2">About Me</a>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Popular search terms -->
+  <section class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-16">
+    <h2 class="section-title mb-2">Latest Articles</h2>
+    <p class="section-subtitle mb-8">Learn the theory behind the algorithms</p>
+    <div class="grid sm:grid-cols-2 lg:grid-cols-3 gap-4">
+      {[
+        { title: 'What is Analysis and Design of Algorithms?', slug: 'what-is-ada', date: 'Dec 2024' },
+        { title: 'Big O Notation Explained Simply', slug: 'big-o-notation', date: 'Dec 2024' },
+        { title: 'Greedy Algorithms: A Complete Guide', slug: 'greedy-algorithms-guide', date: 'Dec 2024' },
+        { title: 'Dynamic Programming Tutorial for Beginners', slug: 'dynamic-programming-tutorial', date: 'Dec 2024' },
+        { title: 'How to Prepare for ADA Lab Exams', slug: 'ada-lab-exam-guide', date: 'Dec 2024' },
+        { title: 'Divide and Conquer Explained', slug: 'divide-and-conquer', date: 'Dec 2024' },
+      ].map(post => (
+        <a href={`/blog/${post.slug}`} class="card p-5 hover:-translate-y-0.5 transition-all duration-200 hover:border-brand-800 block">
+          <div class="text-xs text-dark-500 mb-2 font-mono">{post.date}</div>
+          <h3 class="font-semibold text-dark-100 leading-snug mb-3">{post.title}</h3>
+          <span class="text-brand-500 text-sm">Read more →</span>
+        </a>
+      ))}
+    </div>
+  </section>
+</BaseLayout>

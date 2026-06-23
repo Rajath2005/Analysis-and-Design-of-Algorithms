@@ -1,0 +1,110 @@
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&family=JetBrains+Mono:wght@400;500;600&display=swap');
+
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+  html {
+    scroll-behavior: smooth;
+  }
+
+  body {
+    @apply bg-dark-900 text-dark-200 font-sans antialiased;
+  }
+
+  ::-webkit-scrollbar {
+    width: 6px;
+    height: 6px;
+  }
+  ::-webkit-scrollbar-track {
+    @apply bg-dark-800;
+  }
+  ::-webkit-scrollbar-thumb {
+    @apply bg-dark-600 rounded-full;
+  }
+  ::-webkit-scrollbar-thumb:hover {
+    @apply bg-brand-600;
+  }
+}
+
+@layer components {
+  .btn-primary {
+    @apply inline-flex items-center gap-2 px-5 py-2.5 bg-brand-600 hover:bg-brand-500 text-white font-medium rounded-lg transition-colors duration-200;
+  }
+
+  .btn-secondary {
+    @apply inline-flex items-center gap-2 px-5 py-2.5 bg-dark-800 hover:bg-dark-700 text-dark-100 border border-dark-600 font-medium rounded-lg transition-colors duration-200;
+  }
+
+  .card {
+    @apply bg-dark-800 border border-dark-700 rounded-xl overflow-hidden;
+  }
+
+  .badge {
+    @apply inline-flex items-center px-2.5 py-0.5 rounded-full text-xs font-medium;
+  }
+
+  .badge-green {
+    @apply badge bg-brand-950 text-brand-400 border border-brand-800;
+  }
+
+  .badge-blue {
+    @apply badge bg-blue-950 text-blue-400 border border-blue-800;
+  }
+
+  .badge-purple {
+    @apply badge bg-purple-950 text-purple-400 border border-purple-800;
+  }
+
+  .badge-red {
+    @apply badge bg-red-950 text-red-400 border border-red-800;
+  }
+
+  .badge-teal {
+    @apply badge bg-teal-950 text-teal-400 border border-teal-800;
+  }
+
+  .section-title {
+    @apply text-2xl sm:text-3xl font-bold text-dark-50;
+  }
+
+  .section-subtitle {
+    @apply text-dark-400 mt-2;
+  }
+
+  .code-block {
+    @apply rounded-xl overflow-hidden border border-dark-700;
+  }
+}
+
+/* Shiki syntax highlight overrides */
+.astro-code {
+  @apply rounded-xl p-4 text-sm overflow-x-auto border border-dark-700;
+  background-color: #0d1117 !important;
+}
+
+/* Algorithm page prose styling */
+.algo-prose h2 {
+  @apply text-xl font-bold text-dark-50 mt-8 mb-3 pb-2 border-b border-dark-700;
+}
+
+.algo-prose h3 {
+  @apply text-lg font-semibold text-dark-100 mt-6 mb-2;
+}
+
+.algo-prose p {
+  @apply text-dark-300 leading-relaxed mb-4;
+}
+
+.algo-prose ul {
+  @apply list-disc list-inside space-y-1 text-dark-300 mb-4;
+}
+
+.algo-prose ol {
+  @apply list-decimal list-inside space-y-1 text-dark-300 mb-4;
+}
+
+.algo-prose li {
+  @apply leading-relaxed;
+}

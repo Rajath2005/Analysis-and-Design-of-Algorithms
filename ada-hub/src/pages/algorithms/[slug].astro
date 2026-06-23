@@ -1,0 +1,310 @@
+---
+import BaseLayout from '../../layouts/BaseLayout.astro';
+import Breadcrumb from '../../components/Breadcrumb.astro';
+import GitHubStats from '../../components/GitHubStats.astro';
+import AlgorithmCard from '../../components/AlgorithmCard.astro';
+import { algorithms } from '../../data/algorithms';
+import { Code } from 'astro:components';
+
+export function getStaticPaths() {
+  return algorithms.map(algo => ({
+    params: { slug: algo.slug },
+    props: { algo },
+  }));
+}
+
+const { algo } = Astro.props;
+
+const colorMap: Record<string, string> = {
+  greedy: 'badge-green',
+  'dynamic-programming': 'badge-blue',
+  'divide-and-conquer': 'badge-purple',
+  backtracking: 'badge-red',
+  'graph-algorithms': 'badge-teal',
+};
+const badgeClass = colorMap[algo.categorySlug] || 'badge-green';
+
+const related = algo.relatedAlgorithms
+  .map(slug => algorithms.find(a => a.slug === slug))
+  .filter(Boolean) as typeof algorithms;
+
+const schema = {
+  "@context": "https://schema.org",
+  "@type": "TechArticle",
+  "headline": `${algo.title} — C Program with Explanation`,
+  "description": algo.description,
+  "author": { "@type": "Person", "name": "Rajath Kiran", "url": "https://github.com/Rajath2005" },
+  "publisher": { "@type": "Organization", "name": "ADA Hub", "url": "https://ada-hub.replit.app" },
+  "keywords": algo.keywords.join(', '),
+  "programmingLanguage": "C",
+  "about": { "@type": "Thing", "name": algo.title },
+  "educationalLevel": "Undergraduate",
+};
+
+const faqSchema = {
+  "@context": "https://schema.org",
+  "@type": "FAQPage",
+  "mainEntity": algo.vivaQuestions.map(vq => ({
+    "@type": "Question",
+    "name": vq.q,
+    "acceptedAnswer": { "@type": "Answer", "text": vq.a }
+  }))
+};
+---
+
+<BaseLayout
+  title={`${algo.title} Program in C — ADA Lab | VTU BCSL40A`}
+  description={`${algo.description} Complete C program with sample input/output, step-by-step dry run, time complexity O(${algo.timeComplexity}), and viva questions for VTU BCSL40A.`}
+  keywords={algo.keywords}
+  type="article"
+  schema={schema}
+>
+  <script type="application/ld+json" set:html={JSON.stringify(faqSchema)} />
+
+  <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-10">
+    <Breadcrumb crumbs={[
+      { label: 'Algorithms', href: '/algorithms' },
+      { label: algo.title },
+    ]} />
+
+    <div class="grid lg:grid-cols-3 gap-10">
+      <!-- Main Content -->
+      <article class="lg:col-span-2">
+        <!-- Header -->
+        <header class="mb-8">
+          <div class="flex flex-wrap items-center gap-2 mb-4">
+            <span class={badgeClass}>{algo.category}</span>
+            <span class="badge bg-dark-800 text-dark-300 border border-dark-600">VTU BCSL40A</span>
+          </div>
+          <h1 class="text-3xl sm:text-4xl font-bold text-dark-50 mb-4">{algo.title}</h1>
+          <p class="text-dark-400 text-lg leading-relaxed">{algo.description}</p>
+
+          <!-- Complexity badges -->
+          <div class="flex flex-wrap gap-4 mt-6 p-4 bg-dark-800 border border-dark-700 rounded-xl">
+            <div>
+              <div class="text-xs text-dark-500 mb-1">Time Complexity</div>
+              <div class="font-mono font-semibold text-yellow-400">{algo.timeComplexity}</div>
+            </div>
+            <div class="w-px bg-dark-700"></div>
+            <div>
+              <div class="text-xs text-dark-500 mb-1">Space Complexity</div>
+              <div class="font-mono font-semibold text-blue-400">{algo.spaceComplexity}</div>
+            </div>
+            <div class="w-px bg-dark-700"></div>
+            <div>
+              <div class="text-xs text-dark-500 mb-1">Paradigm</div>
+              <div class="font-semibold text-dark-200">{algo.category}</div>
+            </div>
+          </div>
+        </header>
+
+        <!-- Introduction -->
+        <section class="mb-8">
+          <h2 class="text-xl font-bold text-dark-50 border-b border-dark-700 pb-2 mb-4">Introduction</h2>
+          <p class="text-dark-300 leading-relaxed">{algo.introduction}</p>
+        </section>
+
+        <!-- Problem Statement -->
+        <section class="mb-8">
+          <h2 class="text-xl font-bold text-dark-50 border-b border-dark-700 pb-2 mb-4">Problem Statement</h2>
+          <div class="bg-dark-800 border-l-4 border-brand-600 rounded-r-xl p-5">
+            <p class="text-dark-300 leading-relaxed">{algo.problemStatement}</p>
+          </div>
+        </section>
+
+        <!-- Real World Applications -->
+        <section class="mb-8">
+          <h2 class="text-xl font-bold text-dark-50 border-b border-dark-700 pb-2 mb-4">Real World Applications</h2>
+          <ul class="space-y-2">
+            {algo.realWorldApplications.map(app => (
+              <li class="flex items-start gap-3 text-dark-300">
+                <span class="text-brand-500 mt-1 shrink-0">→</span>
+                {app}
+              </li>
+            ))}
+          </ul>
+        </section>
+
+        <!-- Algorithm Explanation -->
+        <section class="mb-8">
+          <h2 class="text-xl font-bold text-dark-50 border-b border-dark-700 pb-2 mb-4">Algorithm Explanation</h2>
+          <p class="text-dark-300 leading-relaxed">{algo.explanation}</p>
+        </section>
+
+        <!-- Step-by-Step Procedure -->
+        <section class="mb-8">
+          <h2 class="text-xl font-bold text-dark-50 border-b border-dark-700 pb-2 mb-4">Step-by-Step Procedure</h2>
+          <ol class="space-y-3">
+            {algo.stepByStep.map((step, i) => (
+              <li class="flex items-start gap-4">
+                <span class="w-7 h-7 bg-brand-950 border border-brand-800 text-brand-400 text-sm font-bold rounded-lg flex items-center justify-center shrink-0 mt-0.5">{i + 1}</span>
+                <span class="text-dark-300 leading-relaxed">{step}</span>
+              </li>
+            ))}
+          </ol>
+        </section>
+
+        <!-- C Program -->
+        <section class="mb-8">
+          <div class="flex items-center justify-between mb-4">
+            <h2 class="text-xl font-bold text-dark-50 border-b border-dark-700 pb-2 flex-1">Complete C Program</h2>
+          </div>
+          <div class="relative">
+            <div class="flex items-center justify-between bg-dark-900 border border-dark-700 border-b-0 rounded-t-xl px-4 py-2">
+              <div class="flex items-center gap-2">
+                <div class="w-2.5 h-2.5 rounded-full bg-red-500/60"></div>
+                <div class="w-2.5 h-2.5 rounded-full bg-yellow-500/60"></div>
+                <div class="w-2.5 h-2.5 rounded-full bg-green-500/60"></div>
+                <span class="ml-2 text-dark-500 text-xs font-mono">{algo.githubFile}</span>
+              </div>
+              <a
+                href={`https://github.com/Rajath2005/Analysis-and-Design-of-Algorithms/blob/main/ADA%20Programs/${algo.githubFile}`}
+                target="_blank"
+                rel="noopener noreferrer"
+                class="text-xs text-brand-500 hover:text-brand-400 font-medium"
+              >
+                View on GitHub ↗
+              </a>
+            </div>
+            <Code code={algo.code} lang="c" theme="one-dark-pro" class="rounded-t-none rounded-b-xl border border-dark-700 border-t-0" />
+          </div>
+        </section>
+
+        <!-- Sample Input/Output -->
+        <section class="mb-8">
+          <h2 class="text-xl font-bold text-dark-50 border-b border-dark-700 pb-2 mb-4">Sample Input &amp; Output</h2>
+          <div class="grid sm:grid-cols-2 gap-4">
+            <div>
+              <div class="text-sm font-medium text-dark-300 mb-2 flex items-center gap-2">
+                <span class="w-2 h-2 bg-blue-500 rounded-full"></span> Sample Input
+              </div>
+              <Code code={algo.sampleInput} lang="text" theme="one-dark-pro" class="text-sm rounded-xl border border-dark-700" />
+            </div>
+            <div>
+              <div class="text-sm font-medium text-dark-300 mb-2 flex items-center gap-2">
+                <span class="w-2 h-2 bg-brand-500 rounded-full"></span> Expected Output
+              </div>
+              <Code code={algo.sampleOutput} lang="text" theme="one-dark-pro" class="text-sm rounded-xl border border-dark-700" />
+            </div>
+          </div>
+        </section>
+
+        <!-- Dry Run -->
+        <section class="mb-8">
+          <h2 class="text-xl font-bold text-dark-50 border-b border-dark-700 pb-2 mb-4">Dry Run / Trace</h2>
+          <div class="bg-dark-800 border border-dark-700 rounded-xl p-5">
+            <pre class="text-dark-300 text-sm whitespace-pre-wrap leading-relaxed font-mono">{algo.dryRun}</pre>
+          </div>
+        </section>
+
+        <!-- Advantages & Disadvantages -->
+        <section class="mb-8">
+          <h2 class="text-xl font-bold text-dark-50 border-b border-dark-700 pb-2 mb-4">Advantages &amp; Disadvantages</h2>
+          <div class="grid sm:grid-cols-2 gap-4">
+            <div class="bg-green-950/30 border border-green-900/50 rounded-xl p-5">
+              <h3 class="font-semibold text-green-400 mb-3">✓ Advantages</h3>
+              <ul class="space-y-2">
+                {algo.advantages.map(adv => (
+                  <li class="text-dark-300 text-sm flex items-start gap-2">
+                    <span class="text-green-500 mt-0.5 shrink-0">+</span> {adv}
+                  </li>
+                ))}
+              </ul>
+            </div>
+            <div class="bg-red-950/30 border border-red-900/50 rounded-xl p-5">
+              <h3 class="font-semibold text-red-400 mb-3">✗ Disadvantages</h3>
+              <ul class="space-y-2">
+                {algo.disadvantages.map(dis => (
+                  <li class="text-dark-300 text-sm flex items-start gap-2">
+                    <span class="text-red-500 mt-0.5 shrink-0">−</span> {dis}
+                  </li>
+                ))}
+              </ul>
+            </div>
+          </div>
+        </section>
+
+        <!-- Viva Questions -->
+        <section class="mb-8">
+          <h2 class="text-xl font-bold text-dark-50 border-b border-dark-700 pb-2 mb-4">Viva Questions &amp; Answers</h2>
+          <div class="space-y-4">
+            {algo.vivaQuestions.map((vq, i) => (
+              <details class="bg-dark-800 border border-dark-700 rounded-xl overflow-hidden group">
+                <summary class="flex items-center justify-between p-4 cursor-pointer list-none hover:bg-dark-700 transition-colors">
+                  <span class="font-medium text-dark-100 pr-4">
+                    <span class="text-brand-500 font-bold mr-2">Q{i + 1}.</span>
+                    {vq.q}
+                  </span>
+                  <svg class="w-4 h-4 text-dark-500 shrink-0 group-open:rotate-180 transition-transform" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"/>
+                  </svg>
+                </summary>
+                <div class="px-4 pb-4 border-t border-dark-700">
+                  <p class="text-dark-300 leading-relaxed mt-3">{vq.a}</p>
+                </div>
+              </details>
+            ))}
+          </div>
+        </section>
+      </article>
+
+      <!-- Sidebar -->
+      <aside class="space-y-6">
+        <!-- Quick Info -->
+        <div class="card p-5 sticky top-24">
+          <h3 class="font-semibold text-dark-100 mb-4">Quick Reference</h3>
+          <dl class="space-y-3 text-sm">
+            <div>
+              <dt class="text-dark-500 text-xs uppercase tracking-wider mb-1">Algorithm Type</dt>
+              <dd class="text-dark-200 font-medium">{algo.category}</dd>
+            </div>
+            <div>
+              <dt class="text-dark-500 text-xs uppercase tracking-wider mb-1">Time Complexity</dt>
+              <dd class="font-mono text-yellow-400">{algo.timeComplexity}</dd>
+            </div>
+            <div>
+              <dt class="text-dark-500 text-xs uppercase tracking-wider mb-1">Space Complexity</dt>
+              <dd class="font-mono text-blue-400">{algo.spaceComplexity}</dd>
+            </div>
+            <div>
+              <dt class="text-dark-500 text-xs uppercase tracking-wider mb-1">Language</dt>
+              <dd class="text-dark-200">C Programming</dd>
+            </div>
+            <div>
+              <dt class="text-dark-500 text-xs uppercase tracking-wider mb-1">Course</dt>
+              <dd class="text-dark-200">VTU BCSL40A</dd>
+            </div>
+          </dl>
+
+          <div class="mt-5 space-y-2">
+            <a
+              href={`https://github.com/Rajath2005/Analysis-and-Design-of-Algorithms/blob/main/ADA%20Programs/${algo.githubFile}`}
+              target="_blank"
+              rel="noopener noreferrer"
+              class="btn-primary w-full justify-center text-sm py-2"
+            >
+              <svg class="w-4 h-4" viewBox="0 0 24 24" fill="currentColor"><path d="M12 0C5.374 0 0 5.373 0 12c0 5.302 3.438 9.8 8.207 11.387.599.111.793-.261.793-.577v-2.234c-3.338.726-4.033-1.416-4.033-1.416-.546-1.387-1.333-1.756-1.333-1.756-1.089-.745.083-.729.083-.729 1.205.084 1.839 1.237 1.839 1.237 1.07 1.834 2.807 1.304 3.492.997.107-.775.418-1.305.762-1.604-2.665-.305-5.467-1.334-5.467-5.931 0-1.311.469-2.381 1.236-3.221-.124-.303-.535-1.524.117-3.176 0 0 1.008-.322 3.301 1.23A11.509 11.509 0 0112 5.803c1.02.005 2.047.138 3.006.404 2.291-1.552 3.297-1.23 3.297-1.23.653 1.653.242 2.874.118 3.176.77.84 1.235 1.911 1.235 3.221 0 4.609-2.807 5.624-5.479 5.921.43.372.823 1.102.823 2.222v3.293c0 .319.192.694.801.576C20.566 21.797 24 17.3 24 12c0-6.627-5.373-12-12-12z"/></svg>
+              Source Code
+            </a>
+            <a href="/algorithms" class="btn-secondary w-full justify-center text-sm py-2">← All Algorithms</a>
+          </div>
+        </div>
+
+        <!-- GitHub Stats -->
+        <GitHubStats />
+      </aside>
+    </div>
+
+    <!-- Related Algorithms -->
+    {related.length > 0 && (
+      <section class="mt-12 border-t border-dark-800 pt-10">
+        <h2 class="section-title mb-6">Related Algorithms</h2>
+        <div class="grid sm:grid-cols-2 lg:grid-cols-3 gap-4">
+          {related.map(r => (
+            <AlgorithmCard {...r} />
+          ))}
+        </div>
+      </section>
+    )}
+  </div>
+</BaseLayout>

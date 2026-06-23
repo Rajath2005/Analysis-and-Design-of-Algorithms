@@ -1,0 +1,87 @@
+---
+import BaseLayout from '../../layouts/BaseLayout.astro';
+import Breadcrumb from '../../components/Breadcrumb.astro';
+import { getCollection, getEntry } from 'astro:content';
+
+export async function getStaticPaths() {
+  const posts = await getCollection('blog');
+  return posts.map(post => ({
+    params: { slug: post.slug },
+    props: { post },
+  }));
+}
+
+const { post } = Astro.props;
+const { Content } = await post.render();
+
+const schema = {
+  "@context": "https://schema.org",
+  "@type": "Article",
+  "headline": post.data.title,
+  "description": post.data.description,
+  "author": { "@type": "Person", "name": post.data.author, "url": "https://github.com/Rajath2005" },
+  "publisher": { "@type": "Organization", "name": "ADA Hub", "url": "https://ada-hub.replit.app" },
+  "datePublished": post.data.pubDate.toISOString(),
+  "dateModified": post.data.updatedDate?.toISOString() ?? post.data.pubDate.toISOString(),
+  "keywords": post.data.tags.join(', '),
+  "mainEntityOfPage": { "@type": "WebPage", "@id": `https://ada-hub.replit.app/blog/${post.slug}` }
+};
+---
+
+<BaseLayout
+  title={`${post.data.title} | ADA Hub`}
+  description={post.data.description}
+  keywords={post.data.tags}
+  type="article"
+  pubDate={post.data.pubDate.toISOString()}
+  schema={schema}
+>
+  <div class="max-w-3xl mx-auto px-4 sm:px-6 lg:px-8 py-10">
+    <Breadcrumb crumbs={[
+      { label: 'Blog', href: '/blog' },
+      { label: post.data.title },
+    ]} />
+
+    <header class="mb-10">
+      <div class="flex flex-wrap gap-2 mb-4">
+        {post.data.tags.map(tag => (
+          <span class="badge badge-green">{tag}</span>
+        ))}
+      </div>
+      <h1 class="text-3xl sm:text-4xl font-bold text-dark-50 mb-4 leading-tight">{post.data.title}</h1>
+      <p class="text-dark-400 text-lg mb-5">{post.data.description}</p>
+      <div class="flex items-center gap-4 text-sm text-dark-500 pb-6 border-b border-dark-800">
+        <span>By <strong class="text-dark-300">{post.data.author}</strong></span>
+        <span>·</span>
+        <time datetime={post.data.pubDate.toISOString()}>
+          {post.data.pubDate.toLocaleDateString('en-US', { year: 'numeric', month: 'long', day: 'numeric' })}
+        </time>
+      </div>
+    </header>
+
+    <div class="prose prose-invert prose-green max-w-none
+      prose-headings:text-dark-50 prose-headings:font-bold
+      prose-p:text-dark-300 prose-p:leading-relaxed
+      prose-a:text-brand-400 prose-a:no-underline hover:prose-a:underline
+      prose-strong:text-dark-100
+      prose-code:text-brand-300 prose-code:bg-dark-800 prose-code:px-1.5 prose-code:py-0.5 prose-code:rounded prose-code:text-sm
+      prose-code:before:content-none prose-code:after:content-none
+      prose-pre:bg-dark-900 prose-pre:border prose-pre:border-dark-700 prose-pre:rounded-xl
+      prose-ul:text-dark-300 prose-ol:text-dark-300
+      prose-li:text-dark-300
+      prose-blockquote:border-brand-600 prose-blockquote:text-dark-400
+      prose-table:text-dark-300
+      prose-th:text-dark-200 prose-th:border-dark-700
+      prose-td:border-dark-800
+    ">
+      <Content />
+    </div>
+
+    <footer class="mt-12 pt-8 border-t border-dark-800">
+      <div class="flex items-center justify-between flex-wrap gap-4">
+        <a href="/blog" class="btn-secondary text-sm">← Back to Blog</a>
+        <a href="/algorithms" class="btn-primary text-sm">Browse Algorithms →</a>
+      </div>
+    </footer>
+  </div>
+</BaseLayout>

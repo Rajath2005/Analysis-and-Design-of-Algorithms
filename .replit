@@ -1,3 +1,4 @@
+modules = ["nodejs-20"]
 [agent]
 expertMode = true
 stack = "BEST_EFFORT_FALLBACK"
@@ -21,9 +22,19 @@ args = "Start application"
 name = "Start application"
 author = "agent"
 
+[workflows.workflow.metadata]
+outputType = "webview"
+
 [[workflows.workflow.tasks]]
 task = "shell.exec"
-args = "bash run.sh"
+args = "cd ada-hub && npm run dev"
+waitForPort = 5000
 
-[workflows.workflow.metadata]
-outputType = "console"
+[[ports]]
+localPort = 5000
+externalPort = 80
+
+[deployment]
+deploymentTarget = "static"
+build = ["bash", "-c", "cd ada-hub && npm run build"]
+publicDir = "ada-hub/dist"

@@ -1,0 +1,131 @@
+---
+title: "Big O Notation Explained — A Simple Guide for ADA Students"
+description: "Master Big O notation with clear examples. Understand O(1), O(log n), O(n), O(n log n), O(n²), and O(2ⁿ) with real algorithm examples from the VTU ADA lab."
+pubDate: 2024-12-03
+tags: ["Big O", "complexity", "time complexity", "algorithms", "ADA"]
+author: "Rajath Kiran A"
+---
+
+## What is Big O Notation?
+
+**Big O notation** describes how the runtime or space requirements of an algorithm grow as the input size `n` increases. It answers: *"How slow does my algorithm get as the problem gets bigger?"*
+
+Big O focuses on the **worst-case scenario** and ignores constants and lower-order terms.
+
+## The Most Important Complexity Classes
+
+### O(1) — Constant Time
+The algorithm takes the same time regardless of input size.
+
+```c
+int getFirst(int arr[], int n) {
+    return arr[0];  // Always one operation
+}
+```
+
+### O(log n) — Logarithmic Time
+The algorithm halves the problem size each step. Extremely efficient.
+
+Example: Binary Search — finding an element in a sorted array.
+
+### O(n) — Linear Time
+The algorithm processes each element once.
+
+```c
+void printAll(int arr[], int n) {
+    for(int i = 0; i < n; i++)
+        printf("%d ", arr[i]);
+}
+```
+
+### O(n log n) — Linearithmic Time
+Slightly worse than linear. Most efficient sorting algorithms achieve this.
+
+**ADA Lab examples:** Merge Sort, Quick Sort (average case), Kruskal's Algorithm
+
+### O(n²) — Quadratic Time
+Nested loops. Gets slow quickly for large inputs.
+
+**ADA Lab examples:** Selection Sort, Prim's Algorithm (with adjacency matrix), Dijkstra's (with adjacency matrix)
+
+```c
+// Typical O(n²) pattern — nested loops
+for(int i = 0; i < n; i++) {
+    for(int j = 0; j < n; j++) {
+        // O(1) work
+    }
+}
+```
+
+### O(V³) — Cubic Time
+Triple nested loops. Common in all-pairs shortest path algorithms.
+
+**ADA Lab examples:** Floyd's Algorithm, Warshall's Algorithm
+
+### O(2ⁿ) — Exponential Time
+Doubles with each additional input element. Only feasible for small n.
+
+**ADA Lab examples:** Subset Sum Problem (backtracking), N-Queens (O(N!))
+
+## Growth Rate Comparison
+
+| n | O(log n) | O(n) | O(n log n) | O(n²) | O(2ⁿ) |
+|---|----------|------|------------|-------|--------|
+| 10 | 3 | 10 | 33 | 100 | 1,024 |
+| 100 | 7 | 100 | 664 | 10,000 | ~10³⁰ |
+| 1000 | 10 | 1,000 | 9,966 | 1,000,000 | ∞ |
+
+## Rules for Computing Big O
+
+### Rule 1: Drop Constants
+O(2n) → **O(n)**, O(5) → **O(1)**
+
+### Rule 2: Drop Lower-Order Terms
+O(n² + n) → **O(n²)**, O(n log n + n) → **O(n log n)**
+
+### Rule 3: Different Variables
+O(a × b) stays as **O(ab)** — don't simplify when variables represent different inputs.
+
+### Rule 4: Addition vs Multiplication
+```c
+// Sequential: O(a + b)
+for(int i = 0; i < a; i++) { /* work */ }
+for(int j = 0; j < b; j++) { /* work */ }
+
+// Nested: O(a × b)
+for(int i = 0; i < a; i++) {
+    for(int j = 0; j < b; j++) { /* work */ }
+}
+```
+
+## Best, Average, and Worst Case
+
+- **Best case** (Ω Omega): Minimum operations (e.g., array already sorted for insertion sort)
+- **Average case** (Θ Theta): Expected performance for random input
+- **Worst case** (O Big O): Maximum operations (what we usually care about)
+
+## ADA Lab Complexity Cheat Sheet
+
+| Algorithm | Time | Space |
+|-----------|------|-------|
+| Kruskal's | O(E log E) | O(V) |
+| Prim's | O(V²) | O(V) |
+| Dijkstra's | O(V²) | O(V) |
+| Floyd's | O(V³) | O(V²) |
+| Warshall's | O(V³) | O(V²) |
+| Topological Sort | O(V+E) | O(V) |
+| 0/1 Knapsack | O(nW) | O(nW) |
+| Quick Sort (avg) | O(n log n) | O(log n) |
+| Merge Sort | O(n log n) | O(n) |
+| Selection Sort | O(n²) | O(1) |
+| N-Queens | O(N!) | O(N) |
+| Subset Sum | O(2ⁿ) | O(n) |
+
+## Pro Tip for VTU Exams
+
+When asked for time complexity in viva, always:
+1. Identify the **dominant operation** (comparisons, swaps, etc.)
+2. Count how many times it executes as a function of n
+3. Express in Big O, dropping constants and lower-order terms
+
+[Browse all algorithm pages →](/algorithms) for detailed complexity explanations for each VTU ADA Lab program.

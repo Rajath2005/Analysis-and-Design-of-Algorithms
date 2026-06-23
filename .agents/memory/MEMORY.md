@@ -1,0 +1,1 @@
+- [ADA Hub Astro Site](ada-hub-site.md) — Astro 4 + Tailwind + MDX site in /ada-hub; all algorithm data in src/data/algorithms.ts; dev runs on port 5000.
