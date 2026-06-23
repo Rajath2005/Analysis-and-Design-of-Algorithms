@@ -4,7 +4,7 @@ import mdx from '@astrojs/mdx';
 import sitemap from '@astrojs/sitemap';
 
 export default defineConfig({
-  site: 'https://ada-hub.replit.app',
+  site: 'https://ada-lab.vercel.app',
   integrations: [
     tailwind({ applyBaseStyles: false }),
     mdx(),

@@ -1,0 +1,6 @@
+{
+  "buildCommand": "cd ada-hub && npm install && npm run build",
+  "outputDirectory": "ada-hub/dist",
+  "installCommand": "echo 'skip root install'",
+  "framework": null
+}
