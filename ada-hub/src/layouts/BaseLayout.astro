@@ -29,7 +29,7 @@ const siteUrl = 'https://ada-hub.replit.app';
 const canonicalUrl = canonical ? `${siteUrl}${canonical}` : `${siteUrl}${Astro.url.pathname}`;
 const fullTitle = title.includes('ADA Hub') ? title : `${title} | ADA Hub`;
 
-const defaultKeywords = ['ADA lab programs', 'VTU BCSL40A', 'analysis and design of algorithms', 'algorithm programs in C', 'Rajath Kiran A'];
+const defaultKeywords = ['ADA lab programs', 'VTU BCSL40A', 'analysis and design of algorithms', 'algorithm programs in C', 'Rajath Kiran A', 'rajathkiran.me'];
 const allKeywords = [...new Set([...keywords, ...defaultKeywords])];
 
 const breadcrumbSchema = {
@@ -49,7 +49,11 @@ const websiteSchema = {
   "author": {
     "@type": "Person",
     "name": "Rajath Kiran A",
-    "url": "https://github.com/Rajath2005"
+    "url": "https://rajathkiran.me/",
+    "sameAs": [
+      "https://rajathkiran.me/",
+      "https://github.com/Rajath2005"
+    ]
   }
 };
 ---
