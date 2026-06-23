@@ -29,7 +29,7 @@ const siteUrl = 'https://ada-hub.replit.app';
 const canonicalUrl = canonical ? `${siteUrl}${canonical}` : `${siteUrl}${Astro.url.pathname}`;
 const fullTitle = title.includes('ADA Hub') ? title : `${title} | ADA Hub`;
 
-const defaultKeywords = ['ADA lab programs', 'VTU BCSL40A', 'analysis and design of algorithms', 'algorithm programs in C', 'Rajath Kiran'];
+const defaultKeywords = ['ADA lab programs', 'VTU BCSL40A', 'analysis and design of algorithms', 'algorithm programs in C', 'Rajath Kiran A'];
 const allKeywords = [...new Set([...keywords, ...defaultKeywords])];
 
 const breadcrumbSchema = {
@@ -48,7 +48,7 @@ const websiteSchema = {
   "description": "Analysis and Design of Algorithms Learning Portal",
   "author": {
     "@type": "Person",
-    "name": "Rajath Kiran",
+    "name": "Rajath Kiran A",
     "url": "https://github.com/Rajath2005"
   }
 };
@@ -64,7 +64,7 @@ const websiteSchema = {
     <title>{fullTitle}</title>
     <meta name="description" content={description} />
     <meta name="keywords" content={allKeywords.join(', ')} />
-    <meta name="author" content="Rajath Kiran" />
+    <meta name="author" content="Rajath Kiran A" />
     <meta name="robots" content="index, follow" />
 
     <link rel="canonical" href={canonicalUrl} />
