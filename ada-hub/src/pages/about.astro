@@ -78,35 +78,111 @@ import { algorithms } from '../data/algorithms';
 
         <!-- Projects -->
         <section>
-          <h2 class="text-2xl font-bold text-dark-50 mb-4">Projects</h2>
+          <h2 class="text-2xl font-bold text-dark-50 mb-1">Lab Projects</h2>
+          <p class="text-dark-500 text-sm mb-5">Open-source VTU lab repositories — complete programs, explanations, and resources for fellow students.</p>
           <div class="space-y-4">
-            <div class="card p-5">
-              <div class="flex items-start justify-between gap-4">
-                <div>
-                  <h3 class="font-semibold text-dark-100 mb-1">ADA Lab Programs Repository</h3>
-                  <p class="text-dark-400 text-sm leading-relaxed">Complete implementation of all 13 VTU BCSL40A ADA Lab programs in C with documentation, sample outputs, and time complexity graphs.</p>
-                  <div class="flex flex-wrap gap-2 mt-3">
+
+            <!-- ADA Hub -->
+            <div class="card p-5 hover:border-brand-700 transition-colors">
+              <div class="flex items-start justify-between gap-4 flex-wrap">
+                <div class="flex-1 min-w-0">
+                  <div class="flex items-center gap-2 mb-1 flex-wrap">
+                    <h3 class="font-semibold text-dark-100">Analysis &amp; Design of Algorithms</h3>
+                    <span class="badge bg-brand-950 text-brand-400 border border-brand-800 text-xs">BCSL40A</span>
+                  </div>
+                  <p class="text-dark-400 text-sm leading-relaxed mb-3">All 13 VTU ADA lab programs in C — Kruskal, Prim, Dijkstra, Floyd, Quick Sort, Merge Sort, N-Queens, and more. With detailed explanations, viva Q&A, and complexity analysis.</p>
+                  <div class="flex flex-wrap gap-2">
                     <span class="badge badge-green">C</span>
                     <span class="badge bg-dark-700 text-dark-300 border border-dark-600">Algorithms</span>
                     <span class="badge bg-dark-700 text-dark-300 border border-dark-600">VTU</span>
                   </div>
                 </div>
-                <a href="https://github.com/Rajath2005/Analysis-and-Design-of-Algorithms" target="_blank" rel="noopener noreferrer" class="shrink-0 btn-secondary text-xs py-1.5 px-3">View ↗</a>
-              </div>
-            </div>
-            <div class="card p-5">
-              <div class="flex items-start justify-between gap-4">
-                <div>
-                  <h3 class="font-semibold text-dark-100 mb-1">ADA Hub — This Website</h3>
-                  <p class="text-dark-400 text-sm leading-relaxed">A production-ready educational portal built with Astro, Tailwind CSS, and TypeScript. SEO-optimized with structured data, sitemap, and RSS feed.</p>
-                  <div class="flex flex-wrap gap-2 mt-3">
-                    <span class="badge badge-blue">Astro</span>
-                    <span class="badge bg-dark-700 text-dark-300 border border-dark-600">TypeScript</span>
-                    <span class="badge bg-dark-700 text-dark-300 border border-dark-600">Tailwind</span>
-                  </div>
+                <div class="flex flex-col gap-2 shrink-0">
+                  <a href="/" class="btn-primary text-xs py-1.5 px-3 justify-center">
+                    Live Site ↗
+                  </a>
+                  <a href="https://github.com/Rajath2005/Analysis-and-Design-of-Algorithms" target="_blank" rel="noopener noreferrer" class="btn-secondary text-xs py-1.5 px-3 justify-center">
+                    GitHub ↗
+                  </a>
                 </div>
               </div>
             </div>
+
+            <!-- React Lab -->
+            <div class="card p-5 hover:border-blue-700 transition-colors">
+              <div class="flex items-start justify-between gap-4 flex-wrap">
+                <div class="flex-1 min-w-0">
+                  <div class="flex items-center gap-2 mb-1 flex-wrap">
+                    <h3 class="font-semibold text-dark-100">React Lab Experiments</h3>
+                    <span class="badge badge-blue text-xs">BCSL657B</span>
+                  </div>
+                  <p class="text-dark-400 text-sm leading-relaxed mb-3">Complete React lab programs for VTU BCSL657B — hands-on experiments covering components, state, hooks, routing, and modern React patterns.</p>
+                  <div class="flex flex-wrap gap-2">
+                    <span class="badge badge-blue">React</span>
+                    <span class="badge bg-dark-700 text-dark-300 border border-dark-600">JavaScript</span>
+                    <span class="badge bg-dark-700 text-dark-300 border border-dark-600">VTU</span>
+                  </div>
+                </div>
+                <div class="flex flex-col gap-2 shrink-0">
+                  <a href="https://reactlabexp.netlify.app/" target="_blank" rel="noopener noreferrer" class="btn-primary text-xs py-1.5 px-3 justify-center">
+                    Live Site ↗
+                  </a>
+                  <a href="https://github.com/Rajath2005/React-Lab" target="_blank" rel="noopener noreferrer" class="btn-secondary text-xs py-1.5 px-3 justify-center">
+                    GitHub ↗
+                  </a>
+                </div>
+              </div>
+            </div>
+
+            <!-- LaTeX Lab -->
+            <div class="card p-5 hover:border-purple-700 transition-colors">
+              <div class="flex items-start justify-between gap-4 flex-wrap">
+                <div class="flex-1 min-w-0">
+                  <div class="flex items-center gap-2 mb-1 flex-wrap">
+                    <h3 class="font-semibold text-dark-100">Technical Writing using LaTeX</h3>
+                    <span class="badge badge-purple text-xs">BCSL456D</span>
+                  </div>
+                  <p class="text-dark-400 text-sm leading-relaxed mb-3">VTU BCSL456D lab manuals in LaTeX — learn professional document preparation, mathematical typesetting, and technical report writing with complete examples.</p>
+                  <div class="flex flex-wrap gap-2">
+                    <span class="badge badge-purple">LaTeX</span>
+                    <span class="badge bg-dark-700 text-dark-300 border border-dark-600">Documentation</span>
+                    <span class="badge bg-dark-700 text-dark-300 border border-dark-600">VTU</span>
+                  </div>
+                </div>
+                <div class="flex flex-col gap-2 shrink-0">
+                  <a href="https://latex-lab-manuals.vercel.app/" target="_blank" rel="noopener noreferrer" class="btn-primary text-xs py-1.5 px-3 justify-center">
+                    Live Site ↗
+                  </a>
+                  <a href="https://github.com/Rajath2005/latex-lab-manuals" target="_blank" rel="noopener noreferrer" class="btn-secondary text-xs py-1.5 px-3 justify-center">
+                    GitHub ↗
+                  </a>
+                </div>
+              </div>
+            </div>
+
+            <!-- Web Tech Lab -->
+            <div class="card p-5 hover:border-teal-700 transition-colors">
+              <div class="flex items-start justify-between gap-4 flex-wrap">
+                <div class="flex-1 min-w-0">
+                  <div class="flex items-center gap-2 mb-1 flex-wrap">
+                    <h3 class="font-semibold text-dark-100">Web Technology Lab</h3>
+                    <span class="badge badge-teal text-xs">BCSL504</span>
+                  </div>
+                  <p class="text-dark-400 text-sm leading-relaxed mb-3">VTU BCSL504 web technology lab programs — HTML, CSS, JavaScript, and server-side scripting experiments with complete solutions and explanations.</p>
+                  <div class="flex flex-wrap gap-2">
+                    <span class="badge badge-teal">HTML/CSS</span>
+                    <span class="badge bg-dark-700 text-dark-300 border border-dark-600">JavaScript</span>
+                    <span class="badge bg-dark-700 text-dark-300 border border-dark-600">VTU</span>
+                  </div>
+                </div>
+                <div class="flex flex-col gap-2 shrink-0">
+                  <a href="https://github.com/Rajath2005/web-lab" target="_blank" rel="noopener noreferrer" class="btn-secondary text-xs py-1.5 px-3 justify-center">
+                    GitHub ↗
+                  </a>
+                </div>
+              </div>
+            </div>
+
           </div>
         </section>
       </div>
