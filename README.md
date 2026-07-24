@@ -1,4 +1,4 @@
-# ADA Hub — Analysis & Design of Algorithms
+# ADA Hub — Analysis & Design of Algorithms 
 
 <p align="center">
   <img src="https://readme-typing-svg.herokuapp.com?font=Fira+Code&size=22&duration=3000&pause=1000&color=6366F1&center=true&vCenter=true&width=600&lines=Complete+ADA+Lab+Programs+in+C;VTU+BCSL40A+%7C+13+Algorithms;Step-by-step+Explanations+%26+Viva+Q%26A;Now+live+at+ada-lab.vercel.app" alt="Typing SVG" />
