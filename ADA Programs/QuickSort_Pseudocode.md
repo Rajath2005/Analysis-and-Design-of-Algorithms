@@ -1,4 +1,5 @@
 # Quick Sort Pseudocode
+>**Note:** This pseudocode uses the **Lomuto partition scheme**, where the last element(A[high]) is chosen as the pivot.
 
 ```text
 QuickSort(A, low, high)
